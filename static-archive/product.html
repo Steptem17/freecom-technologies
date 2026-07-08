@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Phone Accessories | Freecom Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F5F5F5;
+        }
+        
+        /* Header Styles */
+        .sell-header {
+            background: linear-gradient(135deg, rgb(36, 32, 32), rgb(5, 4, 4));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sell-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .sell-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sell-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .sell-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .header-cta {
+            display: inline-block;
+            background-color: rgb(238, 25, 25);
+            color: #F5F5F5;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .header-cta:hover {
+            background-color: transparent;
+            border-color: rgb(238, 25, 25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: #F5F5F5;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: rgb(238, 25, 25);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+            color: rgb(36, 32, 32);
+        }
+        
+        /* Main Content */
+        .sell-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Product Categories Section */
+        .product-categories {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: rgb(36, 32, 32);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: rgb(238, 25, 25);
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .category-tab {
+            padding: 10px 25px;
+            background-color: #F5F5F5;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: #555;
+        }
+        
+        .category-tab.active {
+            background-color: rgb(238, 25, 25);
+            color: white;
+        }
+        
+        .category-tab:not(.active):hover {
+            background-color: #e0e0e0;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgb(238, 25, 25);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-category {
+            color: rgb(238, 25, 25);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: rgb(36, 32, 32);
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: rgb(36, 32, 32);
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .discount {
+            background-color: #ffebee;
+            color: rgb(238, 25, 25);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            flex: 1;
+            background-color: rgb(238, 25, 25);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #c0392b;
+        }
+        
+        .wishlist-btn {
+            width: 40px;
+            height: 40px;
+            background-color: #F5F5F5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .wishlist-btn:hover {
+            background-color: #e0e0e0;
+            color: rgb(238, 25, 25);
+        }
+        
+        /* Featured Products Section */
+        .featured-products {
+            margin-bottom: 60px;
+        }
+        
+        .featured-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .featured-slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .featured-slide {
+            min-width: 100%;
+            padding: 0 10px;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: rgb(238, 25, 25);
+            transform: scale(1.2);
+        }
+        
+        /* Why Buy From Us Section */
+        .why-buy-from-us {
+            background-color: rgb(36, 32, 32);
+            color: #F5F5F5;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            border-radius: 10px;
+        }
+        
+        .why-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .why-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .why-content p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 30px 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: rgb(238, 25, 25);
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .sell-cta {
+            background: linear-gradient(135deg, rgb(238, 25, 25), rgb(240, 71, 71));
+            color: #F5F5F5;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .cta-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn.primary {
+            background-color: #F5F5F5;
+            color: rgb(238, 25, 25);
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            color: #F5F5F5;
+            border: 2px solid #F5F5F5;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .sell-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .sell-header p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sell-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header-cta {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 250px;
+                text-align: center;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .wishlist-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>We Sell</span>
+    </div>
+    
+    <!-- Header Section -->
+    <header class="sell-header">
+        <div class="sell-header-content">
+            <h1>Premium Phone Accessories</h1>
+            <p>Enhance your mobile experience with our high-quality accessories at competitive prices with warranty.</p>
+            <a href="#featured" class="header-cta">Shop Now</a>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="sell-container">
+        <!-- Product Categories Section -->
+        <section class="product-categories">
+            <div class="section-title">
+                <h2>Our Accessories</h2>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Accessories</button>
+                <button class="category-tab" data-category="power-banks">Power Banks</button>
+                <button class="category-tab" data-category="chargers">Chargers</button>
+                <button class="category-tab" data-category="headphones">Headphones</button>
+                <button class="category-tab" data-category="cases">Cases & Covers</button>
+                <button class="category-tab" data-category="holders">Holders & Stands</button>
+            </div>
+            
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically inserted here by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <div class="section-title">
+                <h2>Featured Accessories</h2>
+            </div>
+            
+            <div class="featured-slider">
+                <div class="featured-slider-container" id="featured-slider">
+                    <!-- Featured slides will be inserted here by JavaScript -->
+                </div>
+                
+                <div class="slider-nav" id="slider-nav">
+                    <!-- Slider navigation dots will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Buy From Us Section -->
+        <section class="why-buy-from-us">
+            <div class="why-content">
+                <h2>Why Shop With Freecom Technology?</h2>
+                <p>We offer the best combination of quality products, competitive prices, and exceptional customer service.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Warranty Protection</h3>
+                        <p>All our accessories come with a minimum 6-month warranty for your peace of mind.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Quality Assurance</h3>
+                        <p>We thoroughly test all accessories and only sell products that meet our high standards.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Fast Delivery</h3>
+                        <p>Get your order delivered within Lagos in 24 hours or pick up in-store.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Expert Support</h3>
+                        <p>Our team is available to help you choose the perfect accessories for your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="sell-cta">
+            <div class="cta-content">
+                <h2>Ready to Enhance Your Mobile Experience?</h2>
+                <p>Visit our store to see our full range of accessories or shop online for convenient delivery.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn primary">Shop Online</a>
+                    <a href="#" class="cta-btn secondary">Find a Store</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Product database (only accessories)
+            const products = [
+                {
+                    id: 1,
+                    title: "20,000mAh Fast Charge Power Bank",
+                    category: "power-banks",
+                    description: "Dual USB ports with 18W PD fast charging, LED power indicator",
+                    price: 18000,
+                    originalPrice: 22000,
+                    image: "https://m.media-amazon.com/images/I/61Sp6EpLpaL._AC_UF894,1000_QL80_.jpg",
+                    featured: true,
+                    badge: "Best Seller"
+                },
+                {
+                    id: 2,
+                    title: "10,000mAh Solar Power Bank",
+                    category: "power-banks",
+                    description: "Solar charging capability with built-in flashlight, perfect for outdoor use",
+                    price: 25000,
+                    originalPrice: 30000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/31/6840521/1.jpg",
+                    featured: true
+                },
+                {
+                    id: 3,
+                    title: "18W PD Fast Charger",
+                    category: "chargers",
+                    description: "Quick Charge 3.0 compatible with all smartphones and tablets",
+                    price: 8000,
+                    originalPrice: 12000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/96/6750511/1.jpg",
+                    badge: "30% Off"
+                },
+                {
+                    id: 4,
+                    title: "Car Phone Holder",
+                    category: "holders",
+                    description: "360° rotation with strong suction cup and air vent clip options",
+                    price: 5000,
+                    originalPrice: 7000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/68/3304921/1.jpg"
+                },
+                {
+                    id: 5,
+                    title: "Wireless Earbuds Pro",
+                    category: "headphones",
+                    description: "Bluetooth 5.0 with noise cancellation, 24hr battery life, touch controls",
+                    price: 25000,
+                    originalPrice: 35000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/82/1468391/1.jpg",
+                    featured: true
+                },
+                {
+                    id: 6,
+                    title: "Bluetooth Boom Box",
+                    category: "headphones",
+                    description: "Portable speaker with 20W output, 12hr playtime, and waterproof design",
+                    price: 35000,
+                    originalPrice: 45000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/68/3304921/1.jpg",
+                    featured: true
+                },
+                {
+                    id: 7,
+                    title: "Premium Leather Phone Case",
+                    category: "cases",
+                    description: "Genuine leather with card slots and magnetic closure",
+                    price: 12000,
+                    originalPrice: 15000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/12/2460521/1.jpg"
+                },
+                {
+                    id: 8,
+                    title: "Tempered Glass Screen Protector (3-Pack)",
+                    category: "cases",
+                    description: "9H hardness, ultra-clear, anti-fingerprint, easy installation",
+                    price: 5000,
+                    originalPrice: 8000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/82/1468391/1.jpg"
+                },
+                {
+                    id: 9,
+                    title: "Multi-Port USB Charging Station",
+                    category: "chargers",
+                    description: "6-port USB charger with smart IC for optimal charging",
+                    price: 15000,
+                    originalPrice: 20000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/96/6750511/1.jpg"
+                },
+                {
+                    id: 10,
+                    title: "Magnetic Car Mount",
+                    category: "holders",
+                    description: "Strong magnetic hold with 360° rotation, vent/dash/windshield mount",
+                    price: 7000,
+                    originalPrice: 10000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/68/3304921/1.jpg"
+                },
+                {
+                    id: 11,
+                    title: "Wireless Charging Pad",
+                    category: "chargers",
+                    description: "10W fast wireless charger with LED indicator, Qi-certified",
+                    price: 12000,
+                    originalPrice: 18000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/96/6750511/1.jpg",
+                    featured: true
+                },
+                {
+                    id: 12,
+                    title: "Waterproof Armband for Phones",
+                    category: "cases",
+                    description: "Adjustable armband for workouts with touchscreen compatibility",
+                    price: 6000,
+                    originalPrice: 9000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/12/2460521/1.jpg"
+                },
+                {
+                    id: 13,
+                    title: "30,000mAh Power Bank with LCD",
+                    category: "power-banks",
+                    description: "Massive capacity with digital display, triple output ports",
+                    price: 30000,
+                    originalPrice: 40000,
+                    image: "https://m.media-amazon.com/images/I/61Sp6EpLpaL._AC_UF894,1000_QL80_.jpg"
+                },
+                {
+                    id: 14,
+                    title: "Desk Phone Stand with Wireless Charger",
+                    category: "holders",
+                    description: "Adjustable viewing angle with 10W wireless charging capability",
+                    price: 15000,
+                    originalPrice: 22000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/68/3304921/1.jpg"
+                },
+                {
+                    id: 15,
+                    title: "Noise Cancelling Headphones",
+                    category: "headphones",
+                    description: "Over-ear Bluetooth headphones with 40hr battery life",
+                    price: 45000,
+                    originalPrice: 60000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/82/1468391/1.jpg"
+                },
+                {
+                    id: 16,
+                    title: "Car Charger with Dual USB Ports",
+                    category: "chargers",
+                    description: "3.4A total output with smart charging technology",
+                    price: 6000,
+                    originalPrice: 9000,
+                    image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/96/6750511/1.jpg"
+                }
+            ];
+
+            // DOM elements
+            const productsGrid = document.getElementById('products-grid');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const featuredSlider = document.getElementById('featured-slider');
+            const sliderNav = document.getElementById('slider-nav');
+
+            // Current category filter
+            let currentCategory = 'all';
+            let currentSlide = 0;
+
+            // Render products based on current category
+            function renderProducts() {
+                productsGrid.innerHTML = '';
+                
+                const filteredProducts = currentCategory === 'all' 
+                    ? products 
+                    : products.filter(product => product.category === currentCategory);
+                
+                if (filteredProducts.length === 0) {
+                    productsGrid.innerHTML = '<p class="no-products">No products found in this category. Please check back later.</p>';
+                    return;
+                }
+                
+                filteredProducts.forEach(product => {
+                    const discount = Math.round((1 - product.price / product.originalPrice) * 100);
+                    
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.title}">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${formatCategory(product.category)}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">
+                                <span class="current-price">₦${product.price.toLocaleString()}</span>
+                                ${product.originalPrice > product.price 
+                                    ? `<span class="original-price">₦${product.originalPrice.toLocaleString()}</span>
+                                       <span class="discount">-${discount}%</span>`
+                                    : ''}
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" data-id="${product.id}">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                                <button class="wishlist-btn" data-id="${product.id}">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    productsGrid.appendChild(productCard);
+                });
+            }
+
+            // Format category for display
+            function formatCategory(category) {
+                return category.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+            }
+
+            // Render featured products slider
+            function renderFeaturedSlider() {
+                featuredSlider.innerHTML = '';
+                sliderNav.innerHTML = '';
+                
+                const featuredProducts = products.filter(product => product.featured);
+                
+                featuredProducts.forEach((product, index) => {
+                    // Create slide
+                    const slide = document.createElement('div');
+                    slide.className = 'featured-slide';
+                    
+                    const discount = Math.round((1 - product.price / product.originalPrice) * 100);
+                    
+                    slide.innerHTML = `
+                        <div class="product-card">
+                            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+                            <div class="product-image">
+                                <img src="${product.image}" alt="${product.title}">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">${formatCategory(product.category)}</div>
+                                <h3 class="product-title">${product.title}</h3>
+                                <p class="product-description">${product.description}</p>
+                                <div class="product-price">
+                                    <span class="current-price">₦${product.price.toLocaleString()}</span>
+                                    ${product.originalPrice > product.price 
+                                        ? `<span class="original-price">₦${product.originalPrice.toLocaleString()}</span>
+                                           <span class="discount">-${discount}%</span>`
+                                        : ''}
+                                </div>
+                                <div class="product-actions">
+                                    <button class="add-to-cart" data-id="${product.id}">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="wishlist-btn" data-id="${product.id}">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    featuredSlider.appendChild(slide);
+                    
+                    // Create navigation dot
+                    const dot = document.createElement('div');
+                    dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+                    dot.dataset.index = index;
+                    sliderNav.appendChild(dot);
+                });
+                
+                // Set slider width
+                featuredSlider.style.width = `${featuredProducts.length * 100}%`;
+            }
+
+            // Initialize the page
+            function init() {
+                renderProducts();
+                renderFeaturedSlider();
+                
+                // Auto-rotate featured slider
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % products.filter(p => p.featured).length;
+                    updateSlider();
+                }, 5000);
+            }
+
+            // Update slider position
+            function updateSlider() {
+                const slideWidth = 100 / products.filter(p => p.featured).length;
+                featuredSlider.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+                
+                // Update active dot
+                document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            // Event listeners
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentCategory = tab.dataset.category;
+                    renderProducts();
+                });
+            });
+
+            // Dot navigation
+            sliderNav.addEventListener('click', (e) => {
+                if (e.target.classList.contains('slider-dot')) {
+                    currentSlide = parseInt(e.target.dataset.index);
+                    updateSlider();
+                }
+            });
+
+            // Add to cart functionality
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.add-to-cart')) {
+                    const productId = e.target.closest('.add-to-cart').dataset.id;
+                    const product = products.find(p => p.id == productId);
+                    alert(`Added ${product.title} to your cart!`);
+                    // In a real app, you would add to cart state/localStorage
+                }
+                
+                if (e.target.closest('.wishlist-btn')) {
+                    const productId = e.target.closest('.wishlist-btn').dataset.id;
+                    const product = products.find(p => p.id == productId);
+                    const icon = e.target.closest('.wishlist-btn').querySelector('i');
+                    
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = 'rgb(238, 25, 25)';
+                        alert(`Added ${product.title} to your wishlist!`);
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                        alert(`Removed ${product.title} from your wishlist!`);
+                    }
+                }
+            });
+
+            // Initialize the page
+            init();
+        });
+    </script>
+</body>
+</html> cx

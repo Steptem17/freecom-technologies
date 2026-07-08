@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freecom Technology - Premium Phone Accessories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e61919;
+            --primary-dark:#b90b0b;
+            --secondary: #242020;
+            --dark: #333;
+            --light: #f5f5f5;
+            --gray: #777;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 12px 35px 13px 20px;
+            background-color: var(--light-color);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+        }
+
+       /* Breadcrumb Navigation */
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+            color: var(--secondary);
+        }
+
+        .nav-icon a {
+            color: var(--secondary);
+            font-size: 18px; 
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary), #272121);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1567&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 14px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color:white;
+            border-radius: 10px;
+            border: none; 
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px  solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Categories Section */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 10px; 
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary);
+            font-size: 30px;  
+        }
+
+        .category-card h3 {
+            font-size: 18px; 
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .category-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius:10px; 
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-badge.new {
+            background-color: var(--success);
+        }
+
+        .product-badge.sale {
+            background-color: var(--danger);
+        }
+
+        .product-image {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background-color: #989ea3;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .product-image img:hover  {
+            transform: scale(1.10);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 13px; 
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 15px;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--secondary);
+        }
+
+        .product-price .original {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 14px;
+            margin-right: 0.5rem;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius:10px;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f1f5f9;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .rating {
+            color: var(--warning);
+            margin-top: 0.3rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 10px; 
+        }
+
+        .newsletter h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-form button {
+            padding: 0 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--dark);
+        }
+
+         /* CTA Section */
+         .accessories-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius:10px;
+            margin: 30px;
+        }
+        
+        .accessories-cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .accessories-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        
+        .cta-btn.cta-btn.secondary:hover {
+            background-color: white;
+            color: var(--secondary);
+        }
+
+        /* Shopping Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-header h3 {
+            font-size:18px;
+            color: var(--secondary);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .cart-items {
+            padding: 1.5rem;
+            font-size: 14px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee; 
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-color: #f1f5f9;
+            border-radius: var(--radius);
+            padding: 0.5rem;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .cart-item-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--secondary);
+        }
+
+        .cart-item-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background-color: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 0.2rem;
+            font-size: 14px;
+        }
+
+        .remove-item {
+            color: var(--danger);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;            
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .continue-shopping {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* Chatbot */
+        .chatbot {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+        }
+
+        .chatbot-btn {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px; 
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .chatbot-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: var(--transition);
+        }
+
+        .chatbot-window.open {
+            transform: scale(1);
+        }
+
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 14px;
+        }
+
+        .close-chatbot {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            max-width: 80%;
+            font-size: 14px;
+        }
+
+        .bot-message {
+            background-color: #f1f5f9;
+            padding: 0.8rem;
+            border-radius: 0 10px 10px 10px ;
+            margin-right: auto;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 10px 0 10px 10px;
+            margin-left: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 10px 0 0 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .chatbot-input button {
+            padding: 0 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .cart-sidebar {
+                width: 350px;
+            }
+            .product-image img{
+                width: 60%;
+                height: 60%;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius:10px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 10px;
+                padding: 0.8rem;
+            }
+
+            .chatbot-window {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .cart-sidebar {
+            width: 70%;
+            right: -100%; 
+         }
+    
+     .cart-sidebar.open {
+        right: 0;
+         }
+            .chatbot-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .chatbot-window {
+                width:300px;
+                right: -26px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+         <!-- Navigation -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Accessories</span>
+    </div>
+    <div class="nav-icon">
+                <a href="#" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate">
+            <h1>Premium Phone Accessories</h1>
+            <p>Upgrade your mobile experience with our high-quality accessories designed for performance, protection, and style</p>
+            <div>
+                <a href="#shop" class="btn">Shop Now</a>
+                <a href="#categories" class="btn btn-outline">Explore</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="section-title animate">
+            <h2>Our Product Categories</h2>
+            <p>Browse through our wide range of premium phone accessories</p>
+        </div>
+
+        <div class="categories">
+            <div class="category-card animate delay-1">
+                <div class="category-icon">
+                    <i class="fas fa-battery-full"></i>
+                </div>
+                <h3>Power Banks</h3>
+                <p>Stay charged on the go with our high-capacity power banks</p>
+            </div>
+
+            <div class="category-card animate delay-2">
+                <div class="category-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <h3>Audio</h3>
+                <p>Wireless earbuds and speakers for immersive sound</p>
+            </div>
+
+            <div class="category-card animate delay-3">
+                <div class="category-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Screen Protectors</h3>
+                <p>Crystal clear and privacy screen protectors</p>
+            </div>
+
+            <div class="category-card animate delay-4">
+                <div class="category-icon">
+                    <i class="fas fa-charging-station"></i>
+                </div>
+                <h3>Charging</h3>
+                <p>Cables, adapters and complete charging solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section" id="shop">
+        <div class="section-title animate">
+            <h2>Featured Products</h2>
+            <p>Discover our best selling phone accessories</p>
+        </div>
+
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card animate delay-1" data-category="power-banks" data-price="12000">
+                <div class="product-badge new">New</div>
+                <div class="product-image">
+                    <img src="https://cdn-img.oraimo.com/fit-in/600x600/NG/product/2024/08/30/OPB-1201OPB-1201-680-1.png" alt="20000mAh Power Bank">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Power Banks</span>
+                    <h3 class="product-title">Oraimo Traveler 12 20000mAh 12W Power Bank</h3>
+                    <p class="product-description">Ultra-high capacity with 18W PD fast charging for all your devices</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦20,000</div>
+                        <button class="add-to-cart" data-id="1">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card animate delay-2" data-category="audio" data-price="18000">
+                <div class="product-badge">Popular</div>
+                <div class="product-image">
+                    <img src="white airpods wireless earphones.png" alt="Wireless Earbuds Pro">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-title">Wireless Earbuds Pro</h3>
+                    <p class="product-description">True wireless earbuds with ANC and 30hr battery life</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦18,000</div>
+                        <button class="add-to-cart" data-id="2">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card animate delay-3" data-category="screen-protectors" data-price="4500">
+                <div class="product-image">
+                    <img src="https://png.pngtree.com/png-vector/20240309/ourmid/pngtree-glass-screen-protector-png-image_11898926.png" alt="Privacy Screen Protector">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Screen Protectors</span>
+                    <h3 class="product-title">Premium Privacy Screen Protector</h3>
+                    <p class="product-description">9H tempered glass with 45° privacy filter</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦2,500</div>
+                        <button class="add-to-cart" data-id="3">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card animate delay-4" data-category="charging" data-price="8000">
+                <div class="product-badge sale">Sale</div>
+                <div class="product-image">
+                    <img src="charger adapter.png" alt="65W Fast Charger">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Charging</span>
+                    <h3 class="product-title">65W GaN Fast Charger</h3>
+                    <p class="product-description">Compact charger for phones, tablets and laptops</p>
+                    <div class="product-footer">
+                        <div class="product-price">
+                            <span class="original">₦5,000</span>
+                            ₦8,000
+                        </div>
+                        <button class="add-to-cart" data-id="4">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card animate delay-1" data-category="audio" data-price="25000">
+                <div class="product-image">
+                    <img src="https://cdn-img.oraimo.com/fit-in/600x600/BD/product/2024/11/12/1080-1.png" alt="Bluetooth Speaker">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3 class="product-title">Oraimo SpaceBox 8W FM Wireless Speaker</h3>
+                    <p class="product-description">20W stereo sound with 15hr battery and IPX7 waterproof</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦30,000</div>
+                        <button class="add-to-cart" data-id="5">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card animate delay-2" data-category="charging" data-price="3000">
+                <div class="product-image">
+                    <img src="https://cdn-img.oraimo.com/fit-in/600x600/NG/product/2024/10/18/OCD-710CC.png" alt="USB C Cable">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Charging</span>
+                    <h3 class="product-title">Oraimo MagCable 1M 60W Type-C to Type-C Data Cable</h3>
+                    <p class="product-description">2m fast charging and data sync cable with reinforced connectors</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦8,000</div>
+                        <button class="add-to-cart" data-id="6">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card animate delay-3" data-category="accessories" data-price="15000">
+                <div class="product-badge new">New</div>
+                <div class="product-image">
+                    <img src="https://cdn-img.oraimo.com/fit-in/600x600/MA/product/2024/05/21/OSW-803N.png" alt="Smart Watch">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Smart Watches</span>
+                    <h3 class="product-title">Oraimo Watch 4 Lite 1.83'' TFT IP68 Smart Watch</h3>
+                    <p class="product-description">Track heart rate, SpO2 and 100+ sports modes</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦30,000</div>
+                        <button class="add-to-cart" data-id="7">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card animate delay-4" data-category="accessories" data-price="5000">
+                <div class="product-image">
+                    <img src="https://cdn-img.oraimo.com/fit-in/600x600/NG/album/of-m11n/of-m11n.png" alt="Wireless Mouse">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Oraimo Smart Mouse F 1200 DPI Wireless Mouse</h3>
+                    <p class="product-description">Ergonomic design with silent clicks and 1600DPI</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦5,000</div>
+                        <button class="add-to-cart" data-id="8">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+               <!-- Product 9 -->
+               <div class="product-card animate delay-4" data-category="accessories" data-price="5000">
+                <div class="product-image">
+                    <img src="https://cdn-img.oraimo.com/fit-in/600x600/NG/album/of-kk30/of-kk30.png" alt="Wireless Mouse">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Oraimo Smart Office Wireless Keyboard Mouse Kit</h3>
+                    <p class="product-description">Immediate Comfort and Adaptability</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦5,000</div>
+                        <button class="add-to-cart" data-id="8">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+             <!-- Product 10 -->
+             <div class="product-card animate delay-4" data-category="accessories" data-price="5000">
+                <div class="product-image">
+                    <img src="gaming pad.png" alt="Game-pad">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Game-pad</h3>
+                    <p class="product-description">A peripheral device designed to connect to a computer or console gaming system.</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦7,000</div>
+                        <button class="add-to-cart" data-id="8">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+             <!-- Product 9 -->
+             <div class="product-card animate delay-4" data-category="accessories" data-price="5000">
+                <div class="product-image">
+                    <img src="car-holder.png" alt="Wireless Mouse">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3 class="product-title">Car-Holder</h3>
+                    <p class="product-description">Navigation, hands-free calling, or playing your favourite tunes</p>
+                    <div class="product-footer">
+                        <div class="product-price">₦3,000</div>
+                        <button class="add-to-cart" data-id="8">
+                            <i class="fas fa-shopping-cart"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="section-title animate">
+            <h2>What Our Customers Say</h2>
+            <p>Trusted by thousands of satisfied customers</p>
+        </div>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card animate delay-1">
+                <p class="testimonial-text">"The power bank is a game changer! It charges my phone 4 times and fits in my pocket. Best purchase this year!"</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Amina Yusuf" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Amina Yusuf</h4>
+                        <p>Lagos, Nigeria</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate delay-2">
+                <p class="testimonial-text">"The wireless earbuds have amazing sound quality and battery life. The ANC works perfectly in noisy environments."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Emeka Okoro" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Emeka Okoro</h4>
+                        <p>Abuja, Nigeria</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate delay-3">
+                <p class="testimonial-text">"Fast delivery and excellent customer service. The privacy screen protector works exactly as described. Will buy again!"</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Chioma Eze" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Chioma Eze</h4>
+                        <p>Port Harcourt, Nigeria</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+        <div class="newsletter animate">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on new products, exclusive deals and special offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+     <!-- CTA Section -->
+     <section class="accessories-cta animate delay-3">
+        <h2>Need Help Choosing Accessories?</h2>
+        <p>Our experts can help you select the perfect accessories for your device and lifestyle</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="contact.html" class="cta-btn primary">Contact Us</a>
+            <a href="consultant.html" class="cta-btn secondary">Book Consultation</a>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart (<span id="cart-total-items">0</span>)</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here by JavaScript -->
+            <div class="empty-cart">
+                <p>Your cart is currently empty</p>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">₦0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+            <a href="#" class="continue-shopping" id="continueShopping">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <button class="chatbot-btn" id="chatbotBtn">
+            <i class="fas fa-robot"></i>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h3>Freecom Technology Assistant</h3>
+                <button class="close-chatbot" id="closeChatbot">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    Hi there! 👋 I'm Freecom Technology , your shopping assistant. How can I help you today?
+                </div>
+            </div>
+
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const cartIcon = document.getElementById('cart-icon');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const closeCart = document.getElementById('closeCart');
+            const continueShopping = document.getElementById('continueShopping');
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalItems = document.getElementById('cart-total-items');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            const checkoutBtn = document.querySelector('.checkout-btn');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const chatbotBtn = document.getElementById('chatbotBtn');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChatbot = document.getElementById('closeChatbot');
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const sendMessageBtn = document.getElementById('sendMessage');
+
+        
+            // Cart Toggle
+            cartIcon.addEventListener('click', function(e) {
+                e.preventDefault();
+                cartSidebar.classList.add('open');
+            });
+
+            closeCart.addEventListener('click', function() {
+                cartSidebar.classList.remove('open');
+            });
+
+            continueShopping.addEventListener('click', function(e) {
+                e.preventDefault();
+                cartSidebar.classList.remove('open');
+            });
+
+            // Chatbot Toggle
+            chatbotBtn.addEventListener('click', function() {
+                chatbotWindow.classList.toggle('open');
+            });
+
+            closeChatbot.addEventListener('click', function() {
+                chatbotWindow.classList.remove('open');
+            });
+
+            // Shopping Cart Functionality
+            let cart = [];
+
+            // Add to Cart
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('.product-title').textContent;
+                    const productPrice = parseInt(productCard.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+                    const productImage = productCard.querySelector('.product-image img').src;
+                    
+                    // Check if product already in cart
+                    const existingItem = cart.find(item => item.id === productId);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: 1
+                        });
+                    }
+                    
+                    updateCart();
+                    showNotification(`${productName} added to cart`);
+                    cartSidebar.classList.add('open');
+                });
+            });
+
+            // Update Cart
+            function updateCart() {
+                // Update cart count
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartTotalItems.textContent = totalItems;
+                
+                // Update cart items
+                cartItemsContainer.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<div class="empty-cart"><p>Your cart is currently empty</p></div>';
+                    cartTotalPrice.textContent = '₦0';
+                    return;
+                }
+                
+                let totalPrice = 0;
+                
+                cart.forEach(item => {
+                    totalPrice += item.price * item.quantity;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <p class="cart-item-price">₦${item.price.toLocaleString()}</p>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                                <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                            </div>
+                        </div>
+                        <div class="remove-item" data-id="${item.id}">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                    `;
+                    
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                // Update total price
+                cartTotalPrice.textContent = `₦${totalPrice.toLocaleString()}`;
+                
+                // Add event listeners to quantity buttons
+                document.querySelectorAll('.decrease').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                            updateCart();
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.increase').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        
+                        item.quantity += 1;
+                        updateCart();
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-input').forEach(input => {
+                    input.addEventListener('change', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === id);
+                        const newQuantity = parseInt(this.value) || 1;
+                        
+                        item.quantity = newQuantity;
+                        updateCart();
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        cart = cart.filter(item => item.id !== id);
+                        updateCart();
+                        showNotification('Item removed from cart');
+                    });
+                });
+            }
+
+            // Checkout
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+                
+                alert('Proceeding to checkout with ' + cartTotalItems.textContent + ' items. Total: ' + cartTotalPrice.textContent);
+                // In a real implementation, this would redirect to checkout page
+            });
+
+            // Notification
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                
+                notification.style.position = 'fixed';
+                notification.style.bottom = '20px';
+                notification.style.left = '50%';
+                notification.style.transform = 'translateX(-50%)';
+                notification.style.backgroundColor = 'var(--primary)';
+                notification.style.color = 'white';
+                notification.style.padding = '12px 24px';
+                notification.style.borderRadius = 'var(--radius)';
+                notification.style.boxShadow = 'var(--shadow-lg)';
+                notification.style.zIndex = '1000';
+                notification.style.animation = 'fadeIn 0.3s ease forwards';
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+
+            // Chatbot Functionality
+            const botResponses = {
+                'hi': 'Hello! How can I assist you with your Freecom Technology shopping today?',
+                'hello': 'Hi there! What can I help you find?',
+                'help': 'I can help you with product information, order status, or general questions about TechHub. What do you need?',
+                'products': 'We have power banks, wireless earbuds, screen protectors, charging cables, smart watches and more! Which category interests you?',
+                'power bank': 'Our power banks range from 10000mAh to 30000mAh capacity with fast charging. The 20000mAh model is our best seller at ₦12,000.',
+                'earbuds': 'We offer wireless earbuds with ANC starting from ₦15,000. The Pro version has 30hr battery life and costs ₦18,000.',
+                'screen protector': 'We have both regular and privacy screen protectors. The privacy version costs ₦4,500 and limits viewing angles to protect your screen from prying eyes.',
+                'delivery': 'We deliver nationwide within 2-5 business days. Lagos orders usually arrive within 24-48 hours.',
+                'payment': 'We accept bank transfers, credit cards, and payment on delivery for Lagos orders.',
+                'return': 'We offer 7-day returns for defective products. Please keep your receipt and original packaging.',
+                'default': "I'm not sure I understand. Could you rephrase that? I can help with product info, orders, or general questions."
+            };
+
+            function sendMessage() {
+                const message = chatbotInput.value.trim();
+                if (message === '') return;
+
+                // Add user message
+                addMessage(message, 'user');
+
+                // Bot response
+                let response = botResponses['default'];
+                const lowerMessage = message.toLowerCase();
+
+                for (const [key, value] of Object.entries(botResponses)) {
+                    if (lowerMessage.includes(key)) {
+                        response = value;
+                        break;
+                    }
+                }
+
+                // Simulate typing delay
+                setTimeout(() => {
+                    addMessage(response, 'bot');
+                }, 500);
+
+                // Clear input
+                chatbotInput.value = '';
+            }
+
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            // Send message on button click or enter key
+            sendMessageBtn.addEventListener('click', sendMessage);
+            chatbotInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Initial bot message
+            setTimeout(() => {
+                addMessage("Need help with anything? Type 'help' to see what I can do!", 'bot');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

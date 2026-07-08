@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Consultation | Freecom Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e61919;
+            --primary-dark: #b90b0b;
+            --secondary: #242020;
+            --dark: #333;
+            --light: #f5f5f5;
+            --gray: #777;
+            --light-gray: #e5e5e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+            --radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 12px 35px 13px 20px;
+            background-color: var(--light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+            color: var(--secondary);
+        }
+
+        .nav-icon a {
+            color: var(--secondary);
+            font-size: 18px;
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .consultation-hero {
+            background: linear-gradient(135deg, var(--secondary), #272121);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultation-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .consultation-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .consultation-hero p {
+            font-size: 16px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Content */
+        .consultation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .consultation-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Consultation Form */
+        .consultation-form {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(230, 25, 25, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23777' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            border: none;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Consultation Info */
+        .consultation-info {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .info-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .info-content {
+            margin-bottom: 2rem;
+        }
+
+        .info-content p {
+            margin-bottom: 1rem;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .benefits-list {
+            list-style-type: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .benefits-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+
+        .expert-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .expert-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .expert-info h4 {
+            font-size: 16px;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .expert-info p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+
+        .expert-specialty {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Calendar Styles */
+        .calendar-container {
+            margin-bottom: 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-title {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .calendar-nav button {
+            background-color: #f1f5f9;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calendar-nav button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--gray);
+            padding: 0.5rem;
+        }
+
+        .calendar-day {
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .calendar-day:hover {
+            background-color: #f1f5f9;
+        }
+
+        .calendar-day.selected {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .calendar-day.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Time Slots */
+        .time-slots {
+            margin-top: 1rem;
+        }
+
+        .time-slots-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .time-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .time-slot {
+            padding: 0.5rem;
+            text-align: center;
+            background-color: #f1f5f9;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .time-slot:hover {
+            background-color: #e5e5e5;
+        }
+
+        .time-slot.selected {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .time-slot.booked {
+            background-color: #ffebee;
+            color: #ef9a9a;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        /* Confirmation Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            color: var(--secondary);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .modal-body {
+            margin-bottom: 2rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--secondary);
+            border: 1px solid var(--light-gray);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .consultation-hero h1 {
+                font-size: 28px;
+            }
+
+            .consultation-hero p {
+                font-size: 14px;
+            }
+
+            .time-slots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .consultation-hero {
+                padding: 60px 20px;
+            }
+
+            .consultation-hero h1 {
+                font-size: 24px;
+            }
+
+            .time-slots-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="accessories.html">Accessories</a>
+            <span>/</span>
+            <span>Book Consultation</span>
+        </div>
+        <!-- <div class="nav-icon">
+            <a href="#" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div> -->
+    </header>
+
+    <!-- Hero Section -->
+    <section class="consultation-hero">
+        <div class="hero-content animate">
+            <h1>Expert Accessory Consultation</h1>
+            <p>Schedule a one-on-one session with our tech specialists to find the perfect accessories for your devices and lifestyle needs.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="consultation-container">
+        <!-- Consultation Form -->
+        <div class="consultation-form animate">
+            <h2 class="form-title">Schedule Your Consultation</h2>
+            
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deviceType" class="form-label">Device Type</label>
+                    <select id="deviceType" class="form-control form-select" required>
+                        <option value="" disabled selected>Select your device</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="samsung">Samsung Galaxy</option>
+                        <option value="other-android">Other Android</option>
+                        <option value="tablet">Tablet</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="other">Other Device</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="consultationType" class="form-label">Consultation Type</label>
+                    <select id="consultationType" class="form-control form-select" required>
+                        <option value="" disabled selected>Select consultation type</option>
+                        <option value="general">General Accessory Advice</option>
+                        <option value="protection">Device Protection</option>
+                        <option value="audio">Audio Solutions</option>
+                        <option value="charging">Charging Solutions</option>
+                        <option value="travel">Travel Accessories</option>
+                        <option value="gaming">Gaming Accessories</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="preferredExpert" class="form-label">Preferred Expert (Optional)</label>
+                    <select id="preferredExpert" class="form-control form-select">
+                        <option value="" selected>No preference</option>
+                        <option value="expert1">Tunde Adebayo</option>
+                        <option value="expert2">Amina Mohammed</option>
+                        <option value="expert3">Chukwu Emeka</option>
+                    </select>
+                </div>
+                
+                <!-- Calendar Section -->
+                <div class="form-group calendar-container">
+                    <label class="form-label">Select Date & Time</label>
+                    
+                    <div class="calendar-header">
+                        <div class="calendar-title" id="currentMonth">June 2023</div>
+                        <div class="calendar-nav">
+                            <button type="button" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                            <button type="button" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-grid" id="calendarDaysHeader">
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+                    </div>
+                    
+                    <div class="calendar-grid" id="calendarDays">
+                    </div>
+                    
+                    <div class="time-slots">
+                        <div class="time-slots-title">Available Time Slots</div>
+                        <div class="time-slots-grid" id="timeSlots">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes" class="form-label">Additional Notes (Optional)</label>
+                    <textarea id="notes" class="form-control" placeholder="Any specific requirements or questions you'd like to discuss..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Book Consultation</button>
+            </form>
+        </div>
+        
+        <!-- Consultation Info -->
+        <div class="consultation-info animate">
+            <h2 class="info-title">Why Book a Consultation?</h2>
+            
+            <div class="info-content">
+                <p>Our free 30-minute consultations help you make informed decisions about phone accessories tailored to your specific needs and budget.</p>
+                
+                <ul class="benefits-list">
+                    <li>Personalized recommendations based on your device and usage</li>
+                    <li>Expert advice on compatibility and performance</li>
+                    <li>Learn about the latest technologies and trends</li>
+                    <li>Get answers to all your accessory questions</li>
+                    <li>Discover cost-effective solutions</li>
+                    <li>No obligation to purchase</li>
+                </ul>
+                
+                <p>Consultations are conducted via video call, phone call, or in-person at our Lagos showroom.</p>
+            </div>
+            
+            <h3 class="info-title">Our Experts</h3>
+            
+            <div class="expert-card">
+                <img src="https://images.unsplash.com/photo-1729005961922-ef4aa643a345?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmlnZXJpYSUyMGV4cGVydHxlbnwwfHwwfHx8MA%3D%3D" alt="Tunde Adebayo" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Tunde Adebayo</h4>
+                    <p>5+ years experience in mobile accessories</p>
+                    <span class="expert-specialty">Audio & Charging Specialist</span>
+                </div>
+            </div>
+            
+            <div class="expert-card">
+                <img src="https://images.unsplash.com/photo-1666867540898-aaa1993ffabc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QW1pbmElMjBNb2hhbW1lZCUyMEhlYWQlMjBUZWNobmljaWFuJTIwbmlnZXJpYW4lMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D" alt="Amina Mohammed" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Amina Mohammed</h4>
+                    <p>Certified Mobile Technology Expert</p>
+                    <span class="expert-specialty">Device Protection Specialist</span>
+                </div>
+            </div>
+            
+            <div class="expert-card">
+                <img src="https://plus.unsplash.com/premium_photo-1661723534368-54663fa894cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2h1a3d1JTIwRW1la2ElMjBGb3JtZXIlMjBtb2JpbGUlMjBkZXZpY2UlMjBlbmdpbmVlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Chukwu Emeka" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Chukwu Emeka</h4>
+                    <p>Former mobile device engineer</p>
+                    <span class="expert-specialty">Gaming & Performance Specialist</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Consultation Booked!</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Thank you for booking a consultation with Freecom Technology. We've sent the details to your email.</p>
+                <p><strong>Date:</strong> <span id="confirmDate"></span></p>
+                <p><strong>Time:</strong> <span id="confirmTime"></span></p>
+                <p><strong>Consultation Type:</strong> <span id="confirmType"></span></p>
+                <p>Our expert will contact you at the scheduled time via your preferred method.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="viewCalendar">Add to Calendar</button>
+                <button class="btn" id="returnHome">Return to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calendar functionality
+            const currentMonthEl = document.getElementById('currentMonth');
+            const calendarDaysEl = document.getElementById('calendarDays');
+            const prevMonthBtn = document.getElementById('prevMonth');
+            const nextMonthBtn = document.getElementById('nextMonth');
+            const timeSlotsEl = document.getElementById('timeSlots');
+            const consultationForm = document.getElementById('consultationForm');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const viewCalendarBtn = document.getElementById('viewCalendar');
+            const returnHomeBtn = document.getElementById('returnHome');
+            const confirmDateEl = document.getElementById('confirmDate');
+            const confirmTimeEl = document.getElementById('confirmTime');
+            const confirmTypeEl = document.getElementById('confirmType');
+
+            let currentDate = new Date();
+            let selectedDate = null;
+            let selectedTime = null;
+
+            // Initialize calendar
+            renderCalendar(currentDate);
+
+            // Event listeners
+            prevMonthBtn.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar(currentDate);
+            });
+
+            nextMonthBtn.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar(currentDate);
+            });
+
+            consultationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!selectedDate || !selectedTime) {
+                    alert('Please select a date and time for your consultation');
+                    return;
+                }
+                
+                // Format the selected date
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = selectedDate.toLocaleDateString('en-US', options);
+                
+                // Get consultation type
+                const consultationType = document.getElementById('consultationType').options[document.getElementById('consultationType').selectedIndex].text;
+                
+                // Update confirmation modal
+                confirmDateEl.textContent = formattedDate;
+                confirmTimeEl.textContent = selectedTime;
+                confirmTypeEl.textContent = consultationType;
+                
+                // Show modal
+                confirmationModal.classList.add('active');
+                
+                // In a real application, you would send this data to your server here
+                console.log('Form submitted:', {
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    deviceType: document.getElementById('deviceType').value,
+                    consultationType: consultationType,
+                    preferredExpert: document.getElementById('preferredExpert').value,
+                    date: selectedDate,
+                    time: selectedTime,
+                    notes: document.getElementById('notes').value
+                });
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                confirmationModal.classList.remove('active');
+            });
+
+            viewCalendarBtn.addEventListener('click', () => {
+                // In a real app, this would generate a calendar event file
+                alert('Calendar event would be downloaded in a real implementation');
+            });
+
+            returnHomeBtn.addEventListener('click', () => {
+                window.location.href = 'consultant.html';
+            });
+
+            // Close modal when clicking outside
+            confirmationModal.addEventListener('click', (e) => {
+                if (e.target === confirmationModal) {
+                    confirmationModal.classList.remove('active');
+                }
+            });
+
+            // Calendar rendering function
+            function renderCalendar(date) {
+                // Set month and year title
+                const monthNames = ["January", "February", "March", "April", "May", "June",
+                                   "July", "August", "September", "October", "November", "December"];
+                currentMonthEl.textContent = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+                
+                // Get first day of month and total days in month
+                const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+                const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                
+                // Get days from previous month
+                const prevMonthDays = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+                
+                // Clear calendar
+                calendarDaysEl.innerHTML = '';
+                
+                // Previous month days
+                for (let i = firstDay - 1; i >= 0; i--) {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day disabled';
+                    dayElement.textContent = prevMonthDays - i;
+                    calendarDaysEl.appendChild(dayElement);
+                }
+                
+                // Current month days
+                const today = new Date();
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day';
+                    dayElement.textContent = i;
+                    
+                    // Highlight today
+                    if (date.getFullYear() === today.getFullYear() && 
+                        date.getMonth() === today.getMonth() && 
+                        i === today.getDate()) {
+                        dayElement.classList.add('selected');
+                        selectedDate = new Date(date.getFullYear(), date.getMonth(), i);
+                        renderTimeSlots();
+                    }
+                    
+                    // Highlight selected day
+                    if (selectedDate && 
+                        date.getFullYear() === selectedDate.getFullYear() && 
+                        date.getMonth() === selectedDate.getMonth() && 
+                        i === selectedDate.getDate()) {
+                        dayElement.classList.add('selected');
+                    }
+                    
+                    // Disable past days
+                    if (date.getFullYear() < today.getFullYear() || 
+                        (date.getFullYear() === today.getFullYear() && 
+                         date.getMonth() < today.getMonth()) || 
+                        (date.getFullYear() === today.getFullYear() && 
+                         date.getMonth() === today.getMonth() && 
+                         i < today.getDate())) {
+                        dayElement.classList.add('disabled');
+                    } else {
+                        // Add click event for future days
+                        dayElement.addEventListener('click', () => {
+                            // Remove selected class from all days
+                            document.querySelectorAll('.calendar-day').forEach(day => {
+                                day.classList.remove('selected');
+                            });
+                            
+                            // Add selected class to clicked day
+                            dayElement.classList.add('selected');
+                            
+                            // Set selected date
+                            selectedDate = new Date(date.getFullYear(), date.getMonth(), i);
+                            selectedTime = null;
+                            
+                            // Render time slots
+                            renderTimeSlots();
+                        });
+                    }
+                    
+                    calendarDaysEl.appendChild(dayElement);
+                }
+                
+                // Next month days (to fill the grid)
+                const totalCells = firstDay + daysInMonth;
+                const nextMonthDays = 42 - totalCells; // 6 rows x 7 days
+                
+                for (let i = 1; i <= nextMonthDays; i++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'calendar-day disabled';
+                    dayElement.textContent = i;
+                    calendarDaysEl.appendChild(dayElement);
+                }
+            }
+
+            // Time slots rendering function
+            function renderTimeSlots() {
+                if (!selectedDate) return;
+                
+                // Clear existing time slots
+                timeSlotsEl.innerHTML = '';
+                
+                // Generate time slots (in a real app, these would come from the server)
+                const timeSlots = [];
+                const startHour = 9; // 9 AM
+                const endHour = 17; // 5 PM
+                
+                for (let hour = startHour; hour < endHour; hour++) {
+                    // Add slots on the hour and half hour
+                    timeSlots.push(`${hour}:00 - ${hour}:30`);
+                    timeSlots.push(`${hour}:30 - ${hour + 1}:00`);
+                }
+                
+                // Randomly book some slots for demo purposes
+                const bookedSlots = [];
+                for (let i = 0; i < 5; i++) {
+                    const randomIndex = Math.floor(Math.random() * timeSlots.length);
+                    if (!bookedSlots.includes(randomIndex)) {
+                        bookedSlots.push(randomIndex);
+                    }
+                }
+                
+                // Create time slot elements
+                timeSlots.forEach((slot, index) => {
+                    const slotElement = document.createElement('div');
+                    slotElement.className = 'time-slot';
+                    slotElement.textContent = slot;
+                    
+                    if (bookedSlots.includes(index)) {
+                        slotElement.classList.add('booked');
+                    } else {
+                        slotElement.addEventListener('click', () => {
+                            // Remove selected class from all slots
+                            document.querySelectorAll('.time-slot').forEach(slot => {
+                                slot.classList.remove('selected');
+                            });
+                            
+                            // Add selected class to clicked slot
+                            slotElement.classList.add('selected');
+                            
+                            // Set selected time
+                            selectedTime = slot;
+                        });
+                    }
+                    
+                    timeSlotsEl.appendChild(slotElement);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

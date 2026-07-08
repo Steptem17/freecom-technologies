@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --color-primary: #0d9488;
+  --color-primary-dark: #0f766e;
+  --color-dark: #09090b;
+  --color-surface: #fafafa;
+  --color-light: #f4f4f5;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-zinc-900 overflow-x-hidden scroll-smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight text-zinc-950;
+  }
+}
+
+/* Very faded grid — barely visible, just enough structure */
+.bg-grid-pattern {
+  background-color: #f9f9fb;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ── Faded green glow flowing DOWN vertical grid lines ── */
+@keyframes glow-v {
+  0%   { transform: translateY(-140px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* ── Faded green glow flowing ACROSS horizontal grid lines ── */
+@keyframes glow-h {
+  0%   { transform: translateX(-140px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(110vw); opacity: 0; }
+}
+
+.grid-glow-v {
+  position: fixed;
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(13, 148, 136, 0.4) 40%,
+    rgba(13, 148, 136, 0.4) 60%,
+    transparent
+  );
+  filter: blur(0.3px);
+  box-shadow: 0 0 4px rgba(13, 148, 136, 0.2);
+  animation: glow-v linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid-glow-h {
+  position: fixed;
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(13, 148, 136, 0.35) 40%,
+    rgba(13, 148, 136, 0.35) 60%,
+    transparent
+  );
+  filter: blur(0.3px);
+  box-shadow: 0 0 4px rgba(13, 148, 136, 0.25);
+  animation: glow-h linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scroll reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #fdfdfd; }
+::-webkit-scrollbar-thumb { background: #e4e4e7; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #d4d4d8; }

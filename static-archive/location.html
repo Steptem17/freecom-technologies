@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Store Location | Freecom Technology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e61919;
+            --primary-dark: #b90b0b;
+            --secondary-color: #242020;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --gray-color: #777;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        /* Header Styles */
+        .store-header {
+            background: linear-gradient(135deg, var(--secondary-color), #050404);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .store-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .store-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .store-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .store-header p {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Main Content */
+        .store-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Premium Map Section */
+        .premium-map-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .map-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+            filter: grayscale(20%) contrast(110%) saturate(90%);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 300px;
+        }
+        
+        .map-overlay h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .map-overlay p {
+            font-size: 14px;
+            color: var(--gray-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .map-overlay p i {
+            color: var(--primary-color);
+            width: 16px;
+            text-align: center;
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .map-btn {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .map-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Store Details Section */
+        .store-details-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .store-details-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .store-details-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .detail-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .detail-item p {
+            font-size: 14px;
+            color: var(--gray-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .detail-item p i {
+            color: var(--primary-color);
+            width: 16px;
+        }
+        
+        .store-services h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .services-list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .service-tag {
+            background-color: rgba(230, 25, 25, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Directions Section */
+        .directions-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 60px;
+        }
+        
+        .directions-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .directions-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .transport-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .transport-card {
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: var(--light-color);
+        }
+        
+        .transport-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .transport-card h3 i {
+            color: var(--primary-color);
+        }
+        
+        .transport-card p {
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+        
+        /* CTA Section */
+        .store-cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: var(--border-radius);
+        }
+        
+        .store-cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .store-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .store-header h1 {
+                font-size: 28px;
+            }
+            
+            .map-frame {
+                height: 400px;
+            }
+            
+            .map-overlay {
+                max-width: 100%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: 0;
+            }
+            
+            .store-details-card, .directions-section {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .store-header {
+                padding: 80px 20px;
+            }
+            
+            .store-header h1 {
+                font-size: 24px;
+            }
+            
+            .store-cta h2 {
+                font-size: 24px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Our Location</span>
+    </div>
+    
+    <!-- Header Section -->
+    <header class="store-header">
+        <div class="store-header-content">
+            <h1>Visit Our Adura Alagbado Store</h1>
+            <p>Experience professional device services with our certified technicians at our flagship location</p>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="store-container">
+        <!-- Premium Map Section -->
+        <section class="premium-map-section animate">
+            <div class="map-container">
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414266558!3d6.527631645329475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1620000000000!5m2!1sen!2sng" allowfullscreen="" loading="lazy"></iframe>
+                
+                <div class="map-overlay">
+                    <h3>Freecom Technology</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Adura Alagbado, Lagos</p>
+                    <p><i class="fas fa-phone-alt"></i> +234 812 3456 789</p>
+                    <p><i class="fas fa-clock"></i> Open today: 8:00 AM - 7:00 PM</p>
+                </div>
+                
+                <div class="map-controls">
+                    <button class="map-btn" title="Zoom In"><i class="fas fa-plus"></i></button>
+                    <button class="map-btn" title="Zoom Out"><i class="fas fa-minus"></i></button>
+                    <button class="map-btn" title="Get Directions"><i class="fas fa-directions"></i></button>
+                </div>
+            </div>
+            
+            <div class="store-details-card">
+                <h2>Store Details</h2>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Adura Alagbado, Lagos</p>
+                        <p><i class="fas fa-phone-alt"></i> +234 812 3456 789</p>
+                        <p><i class="fas fa-envelope"></i> alagbado@freecomtech.com</p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4>Opening Hours</h4>
+                        <p><i class="fas fa-clock"></i> Monday - Saturday: 8:00 AM - 7:00 PM</p>
+                        <p><i class="fas fa-clock"></i> Sunday: 10:00 AM - 5:00 PM</p>
+                        <p><i class="fas fa-info-circle"></i> Closed on public holidays</p>
+                    </div>
+                </div>
+                
+                <div class="store-services">
+                    <h4>Services Available</h4>
+                    <div class="services-list">
+                        <span class="service-tag">Screen Replacement</span>
+                        <span class="service-tag">Battery Replacement</span>
+                        <span class="service-tag">Water Damage Repair</span>
+                        <span class="service-tag">Software Issues</span>
+                        <span class="service-tag">Data Recovery</span>
+                        <span class="service-tag">Device Diagnostics</span>
+                        <span class="service-tag">Virus Removal</span>
+                        <span class="service-tag">Hardware Upgrades</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Directions Section -->
+        <section class="directions-section animate delay-1">
+            <h2>Getting Here</h2>
+            
+            <div class="transport-options">
+                <div class="transport-card">
+                    <h3><i class="fas fa-car"></i> By Car</h3>
+                    <p>We have dedicated parking spaces available for customers. From the Lagos-Abeokuta Expressway, turn onto Adura Road and look for our signage.</p>
+                </div>
+                
+                <div class="transport-card">
+                    <h3><i class="fas fa-bus"></i> By Bus</h3>
+                    <p>Take the BRT bus to Adura Bus Stop. We're just a 3-minute walk from the bus stop, opposite the Alagbado Market.</p>
+                </div>
+                
+                <div class="transport-card">
+                    <h3><i class="fas fa-subway"></i> By Train</h3>
+                    <p>The closest train station is Iju Station. From there, take a taxi or ride-hailing service to our location (about 10 minutes).</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://maps.google.com?q=Freecom+Technology+Adura+Alagbado" class="btn" target="_blank">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="store-cta animate delay-2">
+            <h2>Ready to Visit Us?</h2>
+            <p>Book your repair online to minimize wait time, or contact us if you need any assistance finding our location</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="bookonline.html" class="btn">Book Repair Online</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animation
+            document.querySelectorAll('.animate').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Run once on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Map controls (visual only in this example)
+            document.querySelector('.map-btn:nth-child(1)').addEventListener('click', function() {
+                alert('Zoom in functionality would be implemented with Google Maps API');
+            });
+            
+            document.querySelector('.map-btn:nth-child(2)').addEventListener('click', function() {
+                alert('Zoom out functionality would be implemented with Google Maps API');
+            });
+            
+            document.querySelector('.map-btn:nth-child(3)').addEventListener('click', function() {
+                window.open('https://maps.google.com?q=Freecom+Technology+Adura+Alagbado', '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

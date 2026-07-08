@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Press | Freecom Technology - Precision Repairs. Unmatched Reliability.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e61919;
+            --primary-dark: #b90b0b;
+            --secondary-color: #242020;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --gray-color: #777;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        /* Header Styles */
+        .news-header {
+            background: linear-gradient(135deg, var(--secondary-color), #050404);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .news-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .news-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .news-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .news-header p {
+            font-size: 14px; 
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Main Content */
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Section Styles */
+        .news-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 14px; 
+            color: var(--gray-color);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.1);
+        }
+        
+        .news-date {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background-color: rgba(230, 25, 25, 0.1);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .news-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .news-excerpt {
+            color: var(--gray-color);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Press Section */
+        /* .press-section {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 40px;
+            border-radius: var(--border-radius);
+            margin: 60px 0;
+        }
+        
+        .press-section h2 {
+            color: white;
+            font-size: 24px;
+        }
+        
+        .press-section .section-title::after {
+            background-color: white;
+        }
+        
+        .press-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .press-logo {
+            filter: grayscale(100%) brightness(200%);
+            opacity: 0.7;
+            transition: var(--transition);
+            max-width: 150px;
+            max-height: 60px;
+        }
+        
+        .press-logo:hover {
+            filter: grayscale(0%) brightness(100%);
+            opacity: 1;
+        } */
+        
+        /* Featured Article */
+        .featured-article {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .featured-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .featured-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .featured-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-category {
+            display: inline-block;
+            background-color: rgba(230, 25, 25, 0.1);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .featured-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .featured-excerpt {
+            color: var(--gray-color);
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .featured-date, .featured-author {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+        
+        .featured-date i, .featured-author i {
+            color: var(--primary-color);
+        }
+        
+        /* Media Inquiries */
+        .media-section {
+            background-color: white;
+            padding: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+        
+        .media-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .media-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--gray-color);
+            font-size: 14px;
+        }
+        
+        .media-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .media-contact a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .media-contact a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .media-contact i {
+            margin-right: 8px;
+        }
+        
+        /* Press Kit Download */
+        .press-kit {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+        }
+        
+        .press-kit h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .press-kit p {
+            color: var(--gray-color);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .download-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .download-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+        
+        .page-numbers {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .page-numbers a, .page-numbers span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .page-numbers a {
+            color: var(--gray-color);
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        
+        .page-numbers a:hover {
+            color: white;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .page-numbers .current {
+            color: white;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Article Page Styles */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .article-header .category {
+            display: inline-block;
+            background-color: rgba(230, 25, 25, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .article-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px; 
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-meta i {
+            color: var(--primary-color);
+        }
+
+        .featured-image-article {
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .featured-image-article img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content h2, .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 30px 0 20px;
+            color: var(--secondary-color);
+        }
+
+        .article-content h2 {
+            font-size: 24px;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--gray-color);
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 30px auto;
+            display: block;
+            box-shadow: var(--box-shadow);
+        }
+
+        .back-to-news {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-to-news i {
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+
+        .back-to-news:hover {
+            color: var(--primary-dark);
+        }
+
+        .back-to-news:hover i {
+            transform: translateX(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-image {
+                order: -1;
+            }
+            
+            .press-logos {
+                gap: 30px;
+            }
+            
+            .press-logo {
+                max-width: 120px;
+            }
+            .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 40px; 
+        }
+
+        }
+        
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .media-section {
+                padding: 40px 20px;
+            }
+
+            .article-content {
+                font-size: 15px;
+            }
+
+            .article-content h2 {
+                font-size: 22px;
+            }
+
+            .article-content h3 {
+                font-size: 18px;
+            }
+
+            
+        }
+        
+        @media (max-width: 480px) {
+            .news-header {
+                padding: 80px 20px;
+            }
+            
+            .news-header h1 {
+                font-size: 24px;
+            }
+            
+            .featured-title {
+                font-size: 20px;
+            }
+            
+            .press-logos {
+                gap: 20px;
+            }
+            
+            .press-logo {
+                max-width: 100px;
+            }
+            
+            .page-numbers a, .page-numbers span {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .article-header h1 {
+                font-size: 24px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Hidden class for article content */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Check if we're showing an article or the news listing -->
+    <div id="news-listing" class="hidden">
+        <!-- Navigation -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span>News & Press</span>
+        </div>
+        
+        <!-- Header Section -->
+        <header class="news-header">
+            <div class="news-header-content">
+                <h1>News & Press</h1>
+                <p>Stay updated with the latest news, media coverage, and announcements from Freecom Technology</p>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="news-container">
+            <!-- Featured Article -->
+            <section class="news-section animate">
+                <div class="featured-article">
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Freecom Technology Team">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-category">Company News</span>
+                        <h2 class="featured-title">Freecom Technology Expands to Three New Locations Across Lagos</h2>
+                        <p class="featured-excerpt">We're excited to announce the opening of three new Freecom Technology service centers in Ikeja, Lekki, and Surulere, bringing our total locations to six across Lagos. This expansion allows us to serve more customers with our signature same-day repair services and lifetime warranty.</p>
+                        <div class="featured-meta">
+                            <span class="featured-date"><i class="far fa-calendar-alt"></i> June 15, 2025</span>
+                            <span class="featured-author"><i class="far fa-user"></i> Chinedu Okonkwo</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="showArticle('featured')">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Latest News Section -->
+            <section class="news-section animate delay-1">
+                <h2 class="section-title">Latest News</h2>
+                <p class="section-subtitle">Stay informed about our company updates, innovations, and industry insights</p>
+                
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Workshop Training">
+                            <span class="news-date">May 28, 2025</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Innovation</span>
+                            <h3 class="news-title">Freecom Launches Advanced Microsoldering Training Program</h3>
+                            <p class="news-excerpt">Our new certification program aims to train the next generation of repair technicians in advanced board-level repairs and microsoldering techniques.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article1')">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Team Celebration">
+                            <span class="news-date">April 10, 2025</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Achievement</span>
+                            <h3 class="news-title">Freecom Technology Celebrates 10,000 Successful Repairs</h3>
+                            <p class="news-excerpt">We've reached a significant milestone in our journey, having successfully repaired over 10,000 devices since our founding in 2015.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article2')">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-waste Recycling">
+                            <span class="news-date">March 5, 2025</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Sustainability</span>
+                            <h3 class="news-title">New E-Waste Recycling Initiative Launched</h3>
+                            <p class="news-excerpt">As part of our commitment to environmental responsibility, we've partnered with GreenTech Africa to establish free e-waste collection points at all our locations.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article3')">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Student Discount">
+                            <span class="news-date">February 18, 2025</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Community</span>
+                            <h3 class="news-title">50% Discount for Students Announced</h3>
+                            <p class="news-excerpt">To support education in Nigeria, we're offering special discounts on all repairs for students with valid school IDs through the end of the academic year.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article4')">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="New Products">
+                            <span class="news-date">January 22, 2025</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Products</span>
+                            <h3 class="news-title">Premium Accessories Line Now Available</h3>
+                            <p class="news-excerpt">We've expanded our product offerings with a new line of premium phone accessories, all backed by our 1-year replacement warranty.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article5')">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Holiday Hours">
+                            <span class="news-date">December 15, 2024</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Announcement</span>
+                            <h3 class="news-title">Special Holiday Repair Promotion</h3>
+                            <p class="news-excerpt">Get 20% off all screen replacements and free device diagnostics throughout the holiday season at all Freecom Technology locations.</p>
+                            <a href="#" class="read-more" onclick="showArticle('article6')">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <div class="page-numbers">
+                        <a href="#" onclick="changePage(1)"><i class="fas fa-chevron-left"></i></a>
+                        <a href="#" onclick="changePage(1)" class="current">1</a>
+                        <a href="#" onclick="changePage(2)">2</a>
+                        <a href="#" onclick="changePage(3)">3</a>
+                        <a href="#" onclick="changePage(2)"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Press Coverage Section -->
+            <!-- <section class="press-section animate delay-2">
+                <h2 class="section-title">Press Coverage</h2>
+                <p class="section-subtitle">Where Freecom Technology has been featured</p>
+                
+                <div class="press-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/The_Guardian_logo_1988-2005.png" alt="The Guardian" class="press-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/The_Punch_Newspapers_Logo.png" alt="Punch Newspaper" class="press-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/ThisDay.svg/800px-ThisDay.svg.png" alt="This Day" class="press-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/TechCabal_Logo.png/800px-TechCabal_Logo.png" alt="Tech Cabal" class="press-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/CNBC_Africa_logo.svg/800px-CNBC_Africa_logo.svg.png" alt="CNBC Africa" class="press-logo">
+                </div>
+            </section> -->
+            
+            <!-- Media Inquiries Section -->
+            <section class="media-section animate delay-3">
+                <h2 class="section-title">Media Inquiries</h2>
+                <p>For press and media inquiries, please contact our communications team:</p>
+                
+                <div class="media-contact">
+                    <a href="mailto:press@freecomtech.ng"><i class="fas fa-envelope"></i> press@freecomtech.ng</a>
+                    <a href="tel:+2348123456789"><i class="fas fa-phone"></i> +234 812 345 6789</a>
+                </div>
+                
+                <div class="press-kit">
+                    <h3>Press Kit</h3>
+                    <p>Download our press kit for company information, high-resolution logos, and executive bios.</p>
+                    <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Press Kit</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Article Content (initially hidden) -->
+    <div id="article-content" class="hidden">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="#" onclick="showNewsListing()">News & Press</a>
+            <span>/</span>
+            <span id="article-breadcrumb">Article</span>
+        </div>
+
+        <div class="article-container">
+            <!-- Article content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Article data
+        const articles = {
+            featured: {
+                title: "Freecom Technology Expands to Three New Locations Across Lagos",
+                category: "Company News",
+                date: "June 15, 2025",
+                author: "Chinedu Okonkwo",
+                image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Freecom Technology Team">
+                    </div>
+                    <div class="article-content">
+                        <p>We're thrilled to announce a significant expansion of Freecom Technology's presence in Lagos with the opening of three new service centers in Ikeja, Lekki, and Surulere. This strategic growth brings our total locations to six across the city, allowing us to serve more customers with our industry-leading repair services.</p>
+                        
+                        <h2>Meeting Growing Demand</h2>
+                        <p>The decision to expand comes in response to the overwhelming demand for our services. "We've seen a 150% increase in repair requests over the past two years," said CEO Adebayo Williams. "These new locations will help us maintain our same-day repair promise while reducing wait times across all our centers."</p>
+                        
+                        <p>The new centers feature:</p>
+                        <ul>
+                            <li>State-of-the-art diagnostic equipment</li>
+                            <li>Extended operating hours (8am-8pm daily)</li>
+                            <li>Dedicated customer waiting areas with free WiFi</li>
+                            <li>On-site accessory shops with premium products</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "This expansion represents our commitment to making high-quality device repairs accessible to all Lagos residents. We're not just opening more locations - we're bringing our entire ecosystem of services to more communities."
+                            <cite>- Adebayo Williams, CEO</cite>
+                        </blockquote>
+                        
+                        <h2>Job Creation</h2>
+                        <p>The expansion has created 45 new full-time positions, including:</p>
+                        <ul>
+                            <li>15 certified repair technicians</li>
+                            <li>6 customer service specialists</li>
+                            <li>3 quality assurance managers</li>
+                            <li>21 support staff positions</li>
+                        </ul>
+                        
+                        <p>All new technicians have completed our intensive 6-week training program, ensuring consistent service quality across all locations.</p>
+                        
+                        <h2>Grand Opening Promotions</h2>
+                        <p>To celebrate the openings, we're offering special promotions at our new locations throughout July:</p>
+                        <ul>
+                            <li>30% off all screen replacements</li>
+                            <li>Free diagnostic checks (normally ₦5,000)</li>
+                            <li>Complimentary device cleaning with any repair</li>
+                            <li>Double warranty period on all repairs completed in July</li>
+                        </ul>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="New Location">
+                        </div>
+                        
+                        <h2>Looking Ahead</h2>
+                        <p>With these new locations operational, Freecom Technology is now planning its next phase of expansion into other major Nigerian cities. "By Q1 2026, we aim to have at least one Freecom Technology center in every state capital," Williams revealed.</p>
+                        
+                        <p>The new locations are now open at:</p>
+                        <ul>
+                            <li><strong>Ikeja:</strong> 42 Allen Avenue (opposite The Palms)</li>
+                            <li><strong>Lekki:</strong> Plot 12A, Admiralty Way (beside Novare Mall)</li>
+                            <li><strong>Surulere:</strong> 17 Bode Thomas Street (near National Stadium)</li>
+                        </ul>
+                        
+                        <p>All locations operate from 8:00am to 8:00pm daily, including weekends. Walk-ins are welcome, but customers can schedule appointments online to reduce wait times.</p>
+                    </div>
+                `
+            },
+            article1: {
+                title: "Freecom Launches Advanced Microsoldering Training Program",
+                category: "Innovation",
+                date: "May 28, 2025",
+                author: "Amina Mohammed",
+                image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Microsoldering Training">
+                    </div>
+                    <div class="article-content">
+                        <p>Freecom Technology has launched an intensive Advanced Microsoldering Training Program aimed at developing the next generation of repair technicians in Nigeria. This 8-week certification program focuses on board-level repairs and microsoldering techniques that are revolutionizing the device repair industry.</p>
+                        
+                        <h2>Bridging the Skills Gap</h2>
+                        <p>"There's a critical shortage of technicians skilled in microsoldering across Africa," said Training Director Femi Okafor. "Our program combines theoretical knowledge with hundreds of hours of hands-on practice to create truly proficient technicians."</p>
+                        
+                        <p>The curriculum covers:</p>
+                        <ul>
+                            <li>Component-level diagnostics</li>
+                            <li>BGA reballing and chip replacement</li>
+                            <li>Microscope-assisted soldering</li>
+                            <li>Schematics reading and board tracing</li>
+                            <li>Water damage restoration techniques</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "This isn't just another repair course. We're training technicians to perform surgeries on circuit boards with the precision of medical professionals."
+                            <cite>- Femi Okafor, Training Director</cite>
+                        </blockquote>
+                        
+                        <h2>Industry-Recognized Certification</h2>
+                        <p>Graduates will receive a certification recognized by the Nigerian Technology Repair Association (NTRA) and the International Electronics Repair Council (IERC). The program includes:</p>
+                        <ul>
+                            <li>400 hours of instruction</li>
+                            <li>150+ practical repair scenarios</li>
+                            <li>Final examination with live repair challenges</li>
+                            <li>Job placement assistance for top graduates</li>
+                        </ul>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Training Session">
+                        </div>
+                        
+                        <h2>Affordable Excellence</h2>
+                        <p>Despite the advanced nature of the training, Freecom Technology has kept costs accessible with multiple payment options:</p>
+                        <ul>
+                            <li>Full program fee: ₦450,000</li>
+                            <li>Installment plans available (3-6 months)</li>
+                            <li>Scholarships for top applicants</li>
+                            <li>Income Share Agreement option (pay after employment)</li>
+                        </ul>
+                        
+                        <p>The first cohort begins July 10, 2025, with limited to 15 students to ensure personalized instruction. Applications are being accepted through our website until June 25.</p>
+                        
+                        <h2>Future Plans</h2>
+                        <p>Freecom Technology plans to expand the program to other cities and introduce specialized tracks for:</p>
+                        <ul>
+                            <li>Data recovery specialists</li>
+                            <li>Motherboard engineers</li>
+                            <li>Vintage electronics restoration</li>
+                            <li>Industrial equipment repair</li>
+                        </ul>
+                        
+                        <p>For more information or to apply, visit our training portal or contact education@freecomtech.ng.</p>
+                    </div>
+                `
+            },
+            article2: {
+                title: "Freecom Technology Celebrates 10,000 Successful Repairs",
+                category: "Achievement",
+                date: "April 10, 2025",
+                author: "Emeka Nwachukwu",
+                image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebration">
+                    </div>
+                    <div class="article-content">
+                        <p>Freecom Technology has reached a significant milestone, having successfully repaired over 10,000 devices since opening its doors in 2015. The company celebrated this achievement with staff, customers, and partners at its flagship location in Victoria Island.</p>
+                        
+                        <h2>A Decade of Repair Excellence</h2>
+                        <p>"When we started with just one small shop in 2015, we never imagined we'd be celebrating 10,000 repairs," recalled founder Adebayo Williams. "Each repair represents a customer who trusted us with their valuable devices, and we don't take that lightly."</p>
+                        
+                        <p>Key statistics from the 10,000 repairs:</p>
+                        <ul>
+                            <li>58% were smartphone repairs</li>
+                            <li>22% laptop and computer repairs</li>
+                            <li>12% tablet repairs</li>
+                            <li>8% other electronics (gaming consoles, smart devices, etc.)</li>
+                            <li>94% first-time repair success rate</li>
+                            <li>99.2% customer satisfaction rating</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Our 10,000th repair was actually a 2017 MacBook Pro that had been declared 'unrepairable' by two other shops. Our team restored it to perfect condition - a perfect example of why we do what we do."
+                            <cite>- Chioma Eze, Lead Technician</cite>
+                        </blockquote>
+                        
+                        <h2>Customer Appreciation</h2>
+                        <p>To thank customers for their support, Freecom Technology is offering:</p>
+                        <ul>
+                            <li>10% discount on all repairs for the month of April</li>
+                            <li>Free device health check for all previous customers</li>
+                            <li>Special giveaway of 10 premium repair kits</li>
+                        </ul>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Team Photo">
+                        </div>
+                        
+                        <h2>Looking Forward</h2>
+                        <p>With the 10,000-repair milestone achieved, Freecom Technology is setting new goals:</p>
+                        <ul>
+                            <li>Expand to 15 locations across Nigeria by 2026</li>
+                            <li>Launch a mobile repair unit for corporate clients</li>
+                            <li>Develop an AI-assisted diagnostic system</li>
+                            <li>Train 200 new technicians through apprenticeship programs</li>
+                        </ul>
+                        
+                        <p>The company also announced plans for its first international location in Accra, Ghana, scheduled to open in Q3 2025.</p>
+                        
+                        <h2>Community Impact</h2>
+                        <p>Beyond repairs, Freecom Technology highlighted its community contributions:</p>
+                        <ul>
+                            <li>Donated 250 repaired devices to schools</li>
+                            <li>Trained 75 youths in basic repair skills</li>
+                            <li>Recycled over 3 tons of electronic waste</li>
+                            <li>Sponsored tech education programs in 5 schools</li>
+                        </ul>
+                        
+                        <p>"We're not just fixing devices - we're fixing the digital divide in our communities," Williams added. "Here's to the next 10,000 repairs and beyond!"</p>
+                    </div>
+                `
+            },
+            article3: {
+                title: "New E-Waste Recycling Initiative Launched",
+                category: "Sustainability",
+                date: "March 5, 2025",
+                author: "Bisi Adeleke",
+                image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-Waste Recycling">
+                    </div>
+                    <div class="article-content">
+                        <p>Freecom Technology has partnered with GreenTech Africa to launch a comprehensive e-waste recycling initiative across all its locations. The program provides free collection and responsible recycling of electronic waste, addressing Nigeria's growing e-waste challenge.</p>
+                        
+                        <h2>Closing the E-Waste Loop</h2>
+                        <p>"As repair specialists, we see firsthand the environmental impact of improperly discarded electronics," said Sustainability Officer Ngozi Okoro. "This initiative ensures that devices beyond repair don't end up polluting our environment."</p>
+                        
+                        <p>The program accepts:</p>
+                        <ul>
+                            <li>Non-functional phones and tablets</li>
+                            <li>Broken computers and peripherals</li>
+                            <li>Damaged home electronics</li>
+                            <li>Old cables and accessories</li>
+                            <li>Any electronic item with a plug or battery</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "For every device recycled through our program, we're planting a tree in partnership with the Nigerian Conservation Foundation. It's our way of giving back to the planet."
+                            <cite>- Ngozi Okoro, Sustainability Officer</cite>
+                        </blockquote>
+                        
+                        <h2>How It Works</h2>
+                        <p>The recycling process ensures maximum material recovery with minimal environmental impact:</p>
+                        <ol>
+                            <li>Collection at any Freecom Technology center</li>
+                            <li>Secure data destruction for storage devices</li>
+                            <li>Dismantling by trained technicians</li>
+                            <li>Separation of materials (metals, plastics, glass)</li>
+                            <li>Responsible processing by GreenTech Africa partners</li>
+                            <li>Material repurposing for new products</li>
+                        </ol>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Recycling Process">
+                        </div>
+                        
+                        <h2>Incentives for Participation</h2>
+                        <p>To encourage participation, Freecom Technology is offering:</p>
+                        <ul>
+                            <li>₦1,000 credit toward repairs for every 5 items recycled</li>
+                            <li>Free data wiping service for storage devices</li>
+                            <li>Monthly raffle for participants (prizes include new devices)</li>
+                            <li>School recycling challenges with educational prizes</li>
+                        </ul>
+                        
+                        <p>The company has already recycled over 500kg of e-waste during the pilot phase, diverting hazardous materials from landfills and recovering valuable metals like gold, silver, and copper.</p>
+                        
+                        <h2>Environmental Impact</h2>
+                        <p>According to GreenTech Africa, proper e-waste recycling:</p>
+                        <ul>
+                            <li>Reduces greenhouse gas emissions by 85% compared to landfill</li>
+                            <li>Saves 1.5 tons of CO2 per ton of electronics recycled</li>
+                            <li>Conserves natural resources by recovering rare materials</li>
+                            <li>Prevents toxic substances from contaminating soil and water</li>
+                        </ul>
+                        
+                        <p>"We aim to recycle at least 5 tons of e-waste in our first year," Okoro stated. "But more importantly, we want to educate Nigerians about responsible electronics disposal."</p>
+                        
+                        <p>The program includes community workshops and school visits to spread awareness about e-waste issues and solutions.</p>
+                    </div>
+                `
+            },
+            article4: {
+                title: "50% Discount for Students Announced",
+                category: "Community",
+                date: "February 18, 2025",
+                author: "Yusuf Bello",
+                image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Students with Devices">
+                    </div>
+                    <div class="article-content">
+                        <p>Freecom Technology has launched an Education Support Program offering 50% discounts on all repairs for students with valid school IDs. The initiative, running through the end of the academic year, aims to make device repairs affordable for Nigeria's student population.</p>
+                        
+                        <h2>Supporting Digital Education</h2>
+                        <p>"Students rely on their devices for learning more than ever," said Community Relations Manager Tunde Adebayo. "We want to ensure that a broken screen or faulty charging port doesn't disrupt their education."</p>
+                        
+                        <p>The discount applies to:</p>
+                        <ul>
+                            <li>All levels of education (primary to postgraduate)</li>
+                            <li>All types of devices (phones, tablets, laptops)</li>
+                            <li>All repair services (parts and labor)</li>
+                            <li>All Freecom Technology locations</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "We've seen students delay repairs until exams are over because of cost. This program removes that barrier and keeps their learning tools functional."
+                            <cite>- Tunde Adebayo, Community Relations Manager</cite>
+                        </blockquote>
+                        
+                        <h2>Program Details</h2>
+                        <p>To qualify, students simply need to present a valid school ID or recent registration documents. The discount covers:</p>
+                        <ul>
+                            <li>Screen replacements (normally ₦25,000-₦80,000)</li>
+                            <li>Battery replacements (normally ₦15,000-₦35,000)</li>
+                            <li>Charging port repairs (normally ₦12,000-₦25,000)</li>
+                            <li>Water damage restoration (normally ₦30,000-₦75,000)</li>
+                            <li>All other repair services</li>
+                        </ul>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Student Repair">
+                        </div>
+                        
+                        <h2>Additional Student Benefits</h2>
+                        <p>Beyond the repair discount, students enjoy:</p>
+                        <ul>
+                            <li>Priority service during exam periods</li>
+                            <li>Free device diagnostics</li>
+                            <li>Extended warranty options</li>
+                            <li>Special pricing on accessories</li>
+                            <li>Free workshops on device maintenance</li>
+                        </ul>
+                        
+                        <p>The company has also partnered with several schools to offer on-campus repair pop-ups during mid-terms and finals.</p>
+                        
+                        <h2>Community Impact</h2>
+                        <p>Since the soft launch in January, the program has already benefited over 350 students, saving the student community an estimated ₦8 million in repair costs.</p>
+                        
+                        <p>"My laptop stopped working two weeks before my final project deadline," said University of Lagos student Amaka Onyeka. "The discount made the difference between getting it fixed or trying to write my 50-page project on my phone."</p>
+                        
+                        <h2>Future Plans</h2>
+                        <p>Depending on the program's success, Freecom Technology may:</p>
+                        <ul>
+                            <li>Extend the discount period</li>
+                            <li>Add more student-specific services</li>
+                            <li>Develop school-specific repair packages</li>
+                            <li>Create student technician internship programs</li>
+                        </ul>
+                        
+                        <p>"Education is the foundation of development," Adebayo added. "If we can help remove even small obstacles to learning, we're contributing to Nigeria's future."</p>
+                    </div>
+                `
+            },
+            article5: {
+                title: "Premium Accessories Line Now Available",
+                category: "Products",
+                date: "January 22, 2025",
+                author: "Folake Adeyemi",
+                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Premium Accessories">
+                    </div>
+                    <div class="article-content">
+                        <p>Freecom Technology has expanded its product offerings with the launch of FT Premium Accessories, a new line of high-quality phone and tablet accessories backed by an industry-leading 1-year replacement warranty.</p>
+                        
+                        <h2>Quality Meets Affordability</h2>
+                        <p>"Our customers kept asking for accessories that match the quality of our repairs," said Product Manager Dayo Ogunlesi. "After months of testing, we're proud to offer accessories that outperform major brands at 30-40% lower prices."</p>
+                        
+                        <p>The initial product line includes:</p>
+                        <ul>
+                            <li>Tempered glass screen protectors (9H hardness)</li>
+                            <li>Shockproof hybrid cases (military-grade protection)</li>
+                            <li>Fast charging cables (nylon-braided, 3A rating)</li>
+                            <li>Wireless chargers (15W fast charging)</li>
+                            <li>Multi-port USB hubs (4K HDMI output)</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "We've tested these products to survive drops, bends, and even accidental washes. If any accessory fails within a year, we replace it - no questions asked."
+                            <cite>- Dayo Ogunlesi, Product Manager</cite>
+                        </blockquote>
+                        
+                        <h2>Rigorous Testing</h2>
+                        <p>All FT Premium Accessories undergo extensive testing:</p>
+                        <ul>
+                            <li>5,000+ insertion cycles for cables</li>
+                            <li>1.8m drop tests for cases</li>
+                            <li>Scratch resistance tests up to 9H hardness</li>
+                            <li>Water and dust resistance validation</li>
+                            <li>Compatibility testing across 150+ devices</li>
+                        </ul>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Accessory Testing">
+                        </div>
+                        
+                        <h2>Pricing and Availability</h2>
+                        <p>The accessories are priced competitively:</p>
+                        <ul>
+                            <li>Screen protectors: ₦3,500-₦6,000</li>
+                            <li>Protective cases: ₦7,000-₦12,000</li>
+                            <li>Charging cables: ₦4,500 (1m), ₦5,500 (2m)</li>
+                            <li>Wireless chargers: ₦15,000 (standard), ₦22,000 (fast)</li>
+                            <li>USB hubs: ₦18,000 (4-in-1)</li>
+                        </ul>
+                        
+                        <p>All products are available at Freecom Technology locations and through our online store with free same-day delivery in Lagos.</p>
+                        
+                        <h2>Bundle Offers</h2>
+                        <p>Customers can save more with these bundles:</p>
+                        <ul>
+                            <li>Essential Bundle (case + protector): 15% off</li>
+                            <li>Complete Protection (case + protector + cable): 20% off</li>
+                            <li>Work From Home Bundle (hub + cable + stand): 25% off</li>
+                        </ul>
+                        
+                        <p>Repair customers get an additional 10% off any accessory purchase at time of service.</p>
+                        
+                        <h2>Future Expansion</h2>
+                        <p>The company plans to expand the line to include:</p>
+                        <ul>
+                            <li>Laptop sleeves and stands</li>
+                            <li>Bluetooth trackers</li>
+                            <li>Car mounts and holders</li>
+                            <li>Smart home devices</li>
+                        </ul>
+                        
+                        <p>"This is just phase one of our product expansion," Ogunlesi revealed. "We're developing our own line of repair tools and equipment for professional technicians as well."</p>
+                    </div>
+                `
+            },
+            article6: {
+                title: "Special Holiday Repair Promotion",
+                category: "Announcement",
+                date: "December 15, 2024",
+                author: "Chinedu Okonkwo",
+                image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                content: `
+                    <div class="featured-image-article">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Holiday Promotion">
+                    </div>
+                    <div class="article-content">
+                        <p>Freecom Technology is spreading holiday cheer with special repair promotions running from December 15 through January 5. Customers can enjoy 20% off all screen replacements and free device diagnostics at all locations during this period.</p>
+                        
+                        <h2>Festive Savings</h2>
+                        <p>"The holidays are when people rely most on their devices to connect with loved ones," said Marketing Director Funke Adebayo. "We want to ensure everyone can enjoy the season without worrying about device issues."</p>
+                        
+                        <p>The holiday promotion includes:</p>
+                        <ul>
+                            <li>20% off all screen replacements</li>
+                            <li>Free diagnostic checks (normally ₦5,000)</li>
+                            <li>Complimentary device cleaning</li>
+                            <li>Free gift wrapping for repaired devices</li>
+                            <li>Extended warranty options at 50% off</li>
+                        </ul>
+                        
+                        <blockquote>
+                            "Last December, we saw a 40% increase in water damage repairs from holiday parties. This year, we're prepared with special discounts to help everyone recover quickly."
+                            <cite>- Funke Adebayo, Marketing Director</cite>
+                        </blockquote>
+                        
+                        <h2>Holiday Hours</h2>
+                        <p>To accommodate increased demand, Freecom Technology locations will operate extended hours:</p>
+                        <ul>
+                            <li>December 15-23: 8am-9pm daily</li>
+                            <li>December 24: 8am-4pm</li>
+                            <li>December 25: Closed</li>
+                            <li>December 26-30: 8am-9pm daily</li>
+                            <li>December 31: 8am-3pm</li>
+                            <li>January 1: Closed</li>
+                            <li>January 2-5: 8am-8pm daily</li>
+                        </ul>
+                        
+                        <div class="featured-image-article">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Holiday Repairs">
+                        </div>
+                        
+                        <h2>Gift Ideas</h2>
+                        <p>For those seeking last-minute gifts, Freecom Technology suggests:</p>
+                        <ul>
+                            <li>Gift cards for repairs (any denomination)</li>
+                            <li>Premium accessory bundles</li>
+                            <li>Device protection plans</li>
+                            <li>Battery replacement vouchers</li>
+                        </ul>
+                        
+                        <p>All gift purchases come with festive packaging and a personalized message option.</p>
+                        
+                        <h2>New Year Special</h2>
+                        <p>Customers who book January repairs in December receive:</p>
+                        <ul>
+                            <li>Additional 5% discount</li>
+                            <li>Priority scheduling</li>
+                            <li>Free pickup and delivery (Lagos only)</li>
+                        </ul>
+                        
+                        <p>"We want everyone to start the new year with fully functional devices," Adebayo added. "It's our way of helping people stay connected to what matters most."</p>
+                        
+                        <h2>Safety Measures</h2>
+                        <p>During the busy holiday period, Freecom Technology reminds customers to:</p>
+                        <ul>
+                            <li>Back up data before bringing devices for repair</li>
+                            <li>Use online booking to reduce wait times</li>
+                            <li>Take advantage of free diagnostic checks</li>
+                            <li>Consider protective cases and screen protectors</li>
+                        </ul>
+                        
+                        <p>Appointments can be made through the website, mobile app, or by calling any location directly.</p>
+                    </div>
+                `
+            }
+        };
+
+        // Current page state
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check URL for article parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('article');
+            const page = urlParams.get('page');
+
+            if (articleId && articles[articleId]) {
+                showArticle(articleId);
+            } else if (page) {
+                currentPage = parseInt(page);
+                if (isNaN(currentPage) || currentPage < 1) currentPage = 1;
+                showNewsListing();
+            } else {
+                showNewsListing();
+            }
+
+            // Set up animations
+            setupAnimations();
+        });
+
+        // Show news listing
+        function showNewsListing() {
+            document.getElementById('news-listing').classList.remove('hidden');
+            document.getElementById('article-content').classList.add('hidden');
+            updatePagination();
+            window.history.pushState({}, '', `?page=${currentPage}`);
+        }
+
+        // Show article
+        function showArticle(articleId) {
+            const article = articles[articleId];
+            if (!article) return;
+
+            document.getElementById('news-listing').classList.add('hidden');
+            const articleContent = document.getElementById('article-content');
+            articleContent.classList.remove('hidden');
+
+            // Update breadcrumb
+            document.getElementById('article-breadcrumb').textContent = article.title.length > 30 ? 
+                article.title.substring(0, 30) + '...' : article.title;
+
+            // Build article HTML
+            const articleContainer = document.querySelector('.article-container');
+            articleContainer.innerHTML = `
+                <div class="article-header">
+                    <span class="category">${article.category}</span>
+                    <h1>${article.title}</h1>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar-alt"></i> ${article.date}</span>
+                        <span><i class="far fa-user"></i> ${article.author}</span>
+                    </div>
+                </div>
+                ${article.content}
+                <a href="#" onclick="showNewsListing()" class="back-to-news"><i class="fas fa-arrow-left"></i> Back to News</a>
+            `;
+
+            // Update URL
+            window.history.pushState({}, '', `?article=${articleId}`);
+        }
+
+        // Change page
+        function changePage(page) {
+            if (page < 1) page = 1;
+            currentPage = page;
+            showNewsListing();
+        }
+
+        // Update pagination UI
+        function updatePagination() {
+            const totalPages = 3; // For demo purposes
+            const pagination = document.querySelector('.page-numbers');
+            
+            if (!pagination) return;
+            
+            pagination.innerHTML = '';
+            
+            // Previous button
+            pagination.innerHTML += `<a href="#" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'class="disabled"' : ''}><i class="fas fa-chevron-left"></i></a>`;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage) {
+                    pagination.innerHTML += `<span class="current">${i}</span>`;
+                } else {
+                    pagination.innerHTML += `<a href="#" onclick="changePage(${i})">${i}</a>`;
+                }
+            }
+            
+            // Next button
+            pagination.innerHTML += `<a href="#" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'class="disabled"' : ''}><i class="fas fa-chevron-right"></i></a>`;
+        }
+
+        // Animation setup
+        function setupAnimations() {
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animation
+            document.querySelectorAll('.animate').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Run once on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // News card hover effect enhancement
+            const newsCards = document.querySelectorAll('.news-card');
+            newsCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('.news-image img');
+                    if (img) img.style.transform = 'scale(1.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const img = this.querySelector('.news-image img');
+                    if (img) img.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Press logo hover effect
+            const pressLogos = document.querySelectorAll('.press-logo');
+            pressLogos.forEach(logo => {
+                logo.addEventListener('mouseenter', function() {
+                    this.style.filter = 'grayscale(0%) brightness(100%)';
+                    this.style.opacity = '1';
+                });
+                
+                logo.addEventListener('mouseleave', function() {
+                    this.style.filter = 'grayscale(100%) brightness(200%)';
+                    this.style.opacity = '0.7';
+                });
+            });
+            
+            // Read more link animation
+            const readMoreLinks = document.querySelectorAll('.read-more');
+            readMoreLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) icon.style.transform = 'translateX(5px)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('i');
+                    if (icon) icon.style.transform = 'translateX(0)';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
