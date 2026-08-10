@@ -7,43 +7,57 @@ const SMARTPHONE_BRANDS = [
     id: 'b-1',
     brand: 'Apple iPhone Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-8',
+    isHero: true
   },
   {
     id: 'b-2',
     brand: 'Samsung Galaxy Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-4',
+    isHero: false
   },
   {
     id: 'b-3',
     brand: 'Tecno Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-4',
+    isHero: false
   },
   {
     id: 'b-4',
     brand: 'Infinix Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-4',
+    isHero: false
   },
   {
     id: 'b-5',
     brand: 'Redmi / Xiaomi Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-4',
+    isHero: false
   },
   {
     id: 'b-6',
     brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-6',
+    isHero: false
   },
   {
     id: 'b-7',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
-    image: '/phone_hero.png'
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-6',
+    isHero: false
   }
 ];
 
@@ -93,11 +107,11 @@ const Gadgets = () => {
         </div>
       </section>
 
-      {/* Smartphone Brand Grid with Clean Standalone Bouncing Phone Graphics */}
+      {/* Smartphone Brand Grid with Asymmetric Bento Layout & Standalone Bouncing Phone Graphics */}
       <section className="relative z-10 w-full py-12 sm:py-16 bg-[#f8fafc]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
             {SMARTPHONE_BRANDS.map((item, idx) => (
               <motion.div
                 key={item.id}
@@ -106,7 +120,7 @@ const Gadgets = () => {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 text-left"
+                className={`${item.colSpan} bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 text-left`}
               >
                 <div className="space-y-4">
                   {/* Condition Tag */}
@@ -117,26 +131,26 @@ const Gadgets = () => {
                     <Smartphone className="h-5 w-5 text-slate-950" />
                   </div>
 
-                  {/* Standalone Smartphone Image Container (NO GREY BOX, Pure Bouncing Graphics) */}
-                  <div className="h-52 w-full flex flex-col items-center justify-center relative py-2 overflow-hidden">
+                  {/* Standalone Smartphone Image Container (Pure Bouncing Graphics) */}
+                  <div className={`${item.isHero ? 'h-64 sm:h-72' : 'h-52'} w-full flex flex-col items-center justify-center relative py-2 overflow-hidden`}>
                     <motion.img 
                       animate={{ y: [0, -12, 0] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                       src={item.image} 
                       alt={item.brand} 
-                      className="h-44 object-contain filter drop-shadow-xl z-10"
+                      className={`${item.isHero ? 'h-56 sm:h-64' : 'h-44'} object-contain filter drop-shadow-xl z-10`}
                     />
                     {/* Pulsing Shadow Effect */}
                     <motion.div
                       animate={{ scaleX: [1, 0.6, 1], opacity: [0.4, 0.15, 0.4] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-                      className="w-32 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0"
+                      className={`${item.isHero ? 'w-44 h-4' : 'w-32 h-3'} bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0`}
                     />
                   </div>
 
-                  {/* Brand Title Only (No Subtitle Description) */}
+                  {/* Brand Title Only */}
                   <div className="pt-2">
-                    <h3 className="font-display font-black text-xl text-slate-950 leading-tight">
+                    <h3 className={`font-display font-black ${item.isHero ? 'text-2xl sm:text-3xl' : 'text-xl'} text-slate-950 leading-tight`}>
                       {item.brand}
                     </h3>
                   </div>
