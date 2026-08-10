@@ -45,18 +45,26 @@ const SMARTPHONE_BRANDS = [
   },
   {
     id: 'b-6',
-    brand: 'Oppo & Vivo Series',
+    brand: 'Oppo Mobile Series',
     tag: 'Brand New & Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-6',
+    colSpan: 'lg:col-span-4',
     isHero: false
   },
   {
     id: 'b-7',
+    brand: 'Vivo Mobile Series',
+    tag: 'Brand New & Pre-Owned',
+    image: '/phone_hero.png',
+    colSpan: 'lg:col-span-4',
+    isHero: false
+  },
+  {
+    id: 'b-8',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-6',
+    colSpan: 'lg:col-span-4',
     isHero: false
   }
 ];
@@ -107,7 +115,7 @@ const Gadgets = () => {
         </div>
       </section>
 
-      {/* Smartphone Brand Grid with Asymmetric Bento Layout & Standalone Bouncing Phone Graphics */}
+      {/* Fully Responsive Asymmetric Bento Grid (Mobile 1-col, Tablet 2-col, Desktop 12-col) */}
       <section className="relative z-10 w-full py-12 sm:py-16 bg-[#f8fafc]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
           
@@ -206,7 +214,7 @@ const Gadgets = () => {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Tecno Camon 30, Infinix Note 40, iPhone 14 Pro Max..."
+                    placeholder="e.g. Tecno Camon 30, Infinix Note 40, Oppo Reno 11, Vivo V30..."
                     value={customModel}
                     onChange={(e) => setCustomModel(e.target.value)}
                     className="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-xs font-semibold focus:outline-none focus:border-slate-950 bg-slate-50 focus:bg-white transition-all"
