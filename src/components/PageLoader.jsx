@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const PageLoader = () => {
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!show) return null;
+
   return (
     <motion.div
-      key="page-loader-overlay"
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.4, ease: 'easeInOut' } }}
-      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white text-slate-950 select-none overflow-hidden touch-none"
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white text-slate-950 select-none overflow-hidden pointer-events-none"
     >
       <div className="flex flex-col items-center justify-center space-y-8">
-        
-        {/* Animated Spinner */}
         <div className="loader">
           <div className="circle"></div>
           <div className="circle"></div>
           <div className="circle"></div>
           <div className="circle"></div>
         </div>
-
-        {/* Brand Title Centered Under Loader */}
         <div className="text-center space-y-2 pt-2">
           <h2 className="font-display font-black text-xl sm:text-2xl tracking-[0.2em] text-slate-950 uppercase">
             FREECOM TECHNOLOGIES
@@ -28,7 +36,6 @@ const PageLoader = () => {
             PHONE REPAIRS • PHONE ACCESSORIES • GADGETS SALES & SERVICES
           </span>
         </div>
-
       </div>
     </motion.div>
   );

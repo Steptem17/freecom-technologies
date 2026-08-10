@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
 import { CartProvider } from './context/CartContext';
 import { BookingProvider } from './context/BookingContext';
 import Layout from './components/Layout';
@@ -17,32 +16,9 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 
 function AppContent() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Lock scroll and reset position to top while splash loader is active
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    window.scrollTo(0, 0);
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    }, 1200);
-
-    return () => {
-      clearTimeout(timer);
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    };
-  }, []);
-
   return (
     <>
-      <AnimatePresence mode="wait">
-        {isLoading && <PageLoader key="splash-loader" />}
-      </AnimatePresence>
+      <PageLoader />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
