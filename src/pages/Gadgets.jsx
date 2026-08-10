@@ -9,14 +9,16 @@ const SMARTPHONE_BRANDS = [
     brand: 'Apple iPhone Series',
     tag: 'Brand New & Clean Pre-Owned',
     image: '/brand_iphone.png',
-    span: 'lg:col-span-2'
+    span: 'lg:col-span-2',
+    isLarge: true
   },
   {
     id: 'b-2',
     brand: 'Samsung Galaxy Series',
     tag: 'Brand New & Clean Pre-Owned',
     image: '/brand_samsung.png',
-    span: 'lg:col-span-1'
+    span: 'lg:col-span-1',
+    isLarge: false
   },
 
   // BLOCK 2: Three Small Boxes (1-col + 1-col + 1-col)
@@ -25,21 +27,24 @@ const SMARTPHONE_BRANDS = [
     brand: 'Tecno Mobile Series',
     tag: 'Brand New & Pre-Owned',
     image: '/brand_tecno.png',
-    span: 'lg:col-span-1'
+    span: 'lg:col-span-1',
+    isLarge: false
   },
   {
     id: 'b-4',
     brand: 'Infinix Mobile Series',
     tag: 'Brand New & Pre-Owned',
     image: '/brand_infinix.png',
-    span: 'lg:col-span-1'
+    span: 'lg:col-span-1',
+    isLarge: false
   },
   {
     id: 'b-5',
     brand: 'Redmi / Xiaomi Series',
     tag: 'Brand New & Pre-Owned',
     image: '/brand_redmi.png',
-    span: 'lg:col-span-1'
+    span: 'lg:col-span-1',
+    isLarge: false
   },
 
   // BLOCK 3: Large (2-col) + Small (1-col)
@@ -48,14 +53,16 @@ const SMARTPHONE_BRANDS = [
     brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
     image: '/brand_oppo_vivo.png',
-    span: 'lg:col-span-2'
+    span: 'lg:col-span-2',
+    isLarge: true
   },
   {
     id: 'b-7',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
     image: '/brand_itel.png',
-    span: 'lg:col-span-1'
+    span: 'lg:col-span-1',
+    isLarge: false
   }
 ];
 
@@ -65,7 +72,7 @@ const Gadgets = () => {
 
   const handleBrandInquiry = (brandItem) => {
     const text = encodeURIComponent(
-      `Hello Engr. Kehinde / Freecom Technologies!\n\nI am inquiring about buying a ${brandItem.brand} smartphone. Please, do you have this phone brand available in stock at your Head Office? I can specify the exact model, storage size, and preferred condition.`
+      `Hello Freecom Technologies!\n\nI am inquiring about buying a ${brandItem.brand} smartphone. Please, do you have this phone brand available in stock at your Head Office? I can specify the exact model, storage size, and preferred condition.`
     );
     window.open(`https://wa.me/2348030582883?text=${text}`, '_blank');
   };
@@ -75,7 +82,7 @@ const Gadgets = () => {
     if (!customModel.trim()) return;
 
     const text = encodeURIComponent(
-      `Hello Engr. Kehinde / Freecom Technologies!\n\nI am looking for a specific smartphone:\n• Phone Model / Brand: ${customModel.trim()}\n• Preferred Condition: ${customCondition}\n\nPlease, do you have this phone available in stock at your Head Office?`
+      `Hello Freecom Technologies!\n\nI am looking for a specific smartphone:\n• Phone Model / Brand: ${customModel.trim()}\n• Preferred Condition: ${customCondition}\n\nPlease, do you have this phone available in stock at your Head Office?`
     );
     window.open(`https://wa.me/2348030582883?text=${text}`, '_blank');
   };
@@ -130,26 +137,26 @@ const Gadgets = () => {
                     <Smartphone className="h-5 w-5 text-slate-950" />
                   </div>
 
-                  {/* Standalone Bouncing Smartphone Image Container (Custom Transparent PNG) */}
-                  <div className="h-56 w-full flex flex-col items-center justify-center relative py-2 overflow-hidden">
+                  {/* Standalone Bouncing Smartphone Image Container (Increased Prominent Size) */}
+                  <div className={`${item.isLarge ? 'h-64 sm:h-72' : 'h-60'} w-full flex flex-col items-center justify-center relative py-2 overflow-hidden`}>
                     <motion.img 
                       animate={{ y: [0, -12, 0] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                       src={item.image} 
                       alt={item.brand} 
-                      className="h-48 object-contain filter drop-shadow-xl z-10"
+                      className={`${item.isLarge ? 'h-56 sm:h-64' : 'h-52'} object-contain filter drop-shadow-xl z-10`}
                     />
                     {/* Pulsing Shadow Effect */}
                     <motion.div
                       animate={{ scaleX: [1, 0.6, 1], opacity: [0.4, 0.15, 0.4] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-                      className="w-36 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0"
+                      className={`${item.isLarge ? 'w-44 h-4' : 'w-36 h-3'} bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0`}
                     />
                   </div>
 
                   {/* Brand Title */}
                   <div className="pt-2">
-                    <h3 className="font-display font-black text-xl text-slate-950 leading-tight">
+                    <h3 className={`font-display font-black ${item.isLarge ? 'text-2xl sm:text-3xl' : 'text-xl'} text-slate-950 leading-tight`}>
                       {item.brand}
                     </h3>
                   </div>
@@ -192,7 +199,7 @@ const Gadgets = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-3xl">
-              If a specific phone model or brand name is not listed above, type the phone name below and inquire directly with Engr. Kehinde and our team to verify instant stock availability at our Head Office.
+              If a specific phone model or brand name is not listed above, type the phone name below and inquire directly with our team to verify instant stock availability at our Head Office.
             </p>
 
             <form onSubmit={handleCustomPhoneRequest} className="space-y-6 max-w-3xl">

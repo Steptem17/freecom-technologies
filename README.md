@@ -1,100 +1,72 @@
 # Freecom Technologies
 
-Web application for Freecom Technologies — smartphone hardware repair workshop and mobile accessories retailer based in Lagos, Nigeria.
-
-## Store Locations & Contact
-
-- **Main Headquarters Workshop**: 26, Showemimo Street, Adura Bus Stop, Alagbado, Lagos State, Nigeria
-- **Branch Outlet**: 4, Babayemi Street via Adegolu (Power Line), Adura Bus Stop, Alagbado, Lagos State, Nigeria
-- **Direct Phone / WhatsApp**: +234 803 058 2883
-- **Email**: freecomtech.1455@gmail.com
-- **Operating Hours**: Monday – Saturday: 8:00 AM – 9:00 PM
+Official web platform for **Freecom Technologies** — Lagos State's premier mobile technology center specializing in professional smartphone repairs, hardware engineering, software flashing, and authentic brand new & certified pre-owned smartphone sales.
 
 ---
 
-## Features
+## 🌟 Core Services & Features
 
-### Initial Splash Loader & Scroll Management
-- Locked document overflow (`overflow: hidden`) during initial splash screen loading.
-- Layout mounting is deferred until initial load sequence completes to ensure correct scroll positioning.
+- **Precision Phone Repair Intake System (`/repair`):**
+  - Instant online repair booking for smartphones, iPads, tablets, and software flashing.
+  - Direct office line dialer and instant WhatsApp engineer dispatch.
+  - Transparent repair tracking with physical store pickup options.
 
-### Teardown Showcase
-- High-definition smartphone hardware teardown video player with edge-to-edge `object-cover` layout.
-- Configured for silent, continuous background playback (`muted`, `autoPlay`, `loop`, `playsInline`).
+- **Phones & Tech Gadgets Catalog (`/gadgets`):**
+  - Verified inventory of brand new (sealed box) and certified pre-owned smartphones (Apple iPhone, Samsung Galaxy, Tecno, Infinix, Redmi / Xiaomi, Oppo, Vivo, and Itel).
+  - Custom phone availability inquiry system integrated with real-time store inventory messaging.
 
-### Hardware Repair Diagnostics Intake
-- Multi-step diagnostic intake workflow supporting smartphones, tablets, software recovery, and accessories.
-- Form input sanitizer enforcing single plus sign (+) prefix, 10 to 14 digit length boundaries, and field-level inline error styling.
-- Automatic payload compilation routing ticket details directly to WhatsApp.
+- **Mobile Accessories Store (`/accessories`):**
+  - High-grade phone accessories including fast chargers, wall adapters, Type-C/Lightning cables, car plugs, wireless power banks, earbuds, screen guards, and memory storage.
+  - Interactive shopping bag & instant order dispatch.
 
-### Interactive Accessories Catalog
-- Categorized accessory catalog featuring stock availability tracking.
-- Client-side inquiry bag for bulk stock availability checks via WhatsApp.
-
-### Google Maps Integration
-- Embedded interactive Google Maps location cards for both physical store addresses.
-- Direct navigation links pointing to exact street coordinates.
-
-### Smooth Motion Viewports
-- Viewport animations configured with `once: true` to prevent section flickering or bouncing during scroll pauses.
+- **Store Locations & Contact (`/contact`):**
+  - **Head Office:** 26, Showemimo Street, Adura Bus Stop, Alagbado, Lagos State, Nigeria.
+  - **Branch Outlet:** 4, Babayemi Street via Adegolu (Power Line), Adura Bus Stop, Alagbado, Lagos State, Nigeria.
 
 ---
 
-## Tech Stack
+## 🛠️ Technology Stack
 
-- **Framework**: React 19 (Vite)
-- **Styling**: Tailwind CSS
-- **Animation**: Framer Motion
-- **Icons**: Lucide React
-- **Router**: React Router DOM (v7)
-- **Deployment Configuration**: `vercel.json` SPA rewrite rules
-
----
-
-## Project Structure
-
-```
-freecom-technology/
-├── public/                 # Static assets (HD video, SVG, images)
-├── src/
-│   ├── components/         # Reusable UI components
-│   ├── pages/              # Page views (Home, About, Contact, Repair, Shop, Cart, Book)
-│   ├── utils/              # Data models and helper functions
-│   ├── App.jsx             # Application root and router definitions
-│   └── main.jsx            # React root entry point
-├── vercel.json             # Vercel SPA rewrite rules
-├── package.json            # Scripts and dependencies
-└── README.md               # Documentation
-```
+- **Frontend Core:** React 18 & Vite
+- **Styling & Design System:** Tailwind CSS v4 & Custom Typography
+- **Motion & Animations:** Framer Motion
+- **Icons & UI Assets:** Lucide React Icons
+- **Deployment & Hosting:** Vercel Edge Network (Global CDN)
 
 ---
 
-## Local Development
+## 💻 Local Development Setup
+
+### Prerequisites
+- Node.js (v18.0.0 or higher)
+- npm or yarn package manager
 
 ### Installation
-```bash
-npm install
-```
 
-### Run Development Server
-```bash
-npm run dev
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Steptem17/freecom-technology.git
+   cd freecom-technology
+   ```
 
-### Production Build
-```bash
-npm run build
-```
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start Development Server:**
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` in your browser.
+
+4. **Production Build:**
+   ```bash
+   npm run build
+   ```
 
 ---
 
-## Deployment
+## 📄 License & Ownership
 
-Configured for deployment on Vercel. SPA client-side routing rewrites are configured in `vercel.json`.
-```json
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
-```
+Copyright © 2026 **Freecom Technologies**. All rights reserved.
