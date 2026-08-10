@@ -3,69 +3,59 @@ import { motion } from 'framer-motion';
 import { Smartphone, MessageSquare, Search, ShieldCheck, HelpCircle } from 'lucide-react';
 
 const SMARTPHONE_BRANDS = [
+  // BLOCK 1: Large (2-col) + Small (1-col)
   {
     id: 'b-1',
     brand: 'Apple iPhone Series',
     tag: 'Brand New & Clean Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-8',
-    isHero: true
+    span: 'lg:col-span-2'
   },
   {
     id: 'b-2',
     brand: 'Samsung Galaxy Series',
     tag: 'Brand New & Clean Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
+    span: 'lg:col-span-1'
   },
+
+  // BLOCK 2: Three Small Boxes (1-col + 1-col + 1-col)
   {
     id: 'b-3',
     brand: 'Tecno Mobile Series',
     tag: 'Brand New & Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
+    span: 'lg:col-span-1'
   },
   {
     id: 'b-4',
     brand: 'Infinix Mobile Series',
     tag: 'Brand New & Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
+    span: 'lg:col-span-1'
   },
   {
     id: 'b-5',
     brand: 'Redmi / Xiaomi Series',
     tag: 'Brand New & Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
+    span: 'lg:col-span-1'
   },
+
+  // BLOCK 3: Large (2-col) + Small (1-col)
   {
     id: 'b-6',
-    brand: 'Oppo Mobile Series',
+    brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
+    span: 'lg:col-span-2'
   },
   {
     id: 'b-7',
-    brand: 'Vivo Mobile Series',
-    tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
-  },
-  {
-    id: 'b-8',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
     image: '/phone_hero.png',
-    colSpan: 'lg:col-span-4',
-    isHero: false
+    span: 'lg:col-span-1'
   }
 ];
 
@@ -94,7 +84,7 @@ const Gadgets = () => {
     <div className="w-full text-slate-900 bg-white min-h-screen relative font-sans overflow-x-hidden">
       
       {/* Hero Banner */}
-      <section className="relative z-10 w-full pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 border-b border-slate-300 bg-white">
+      <section className="relative z-10 w-full pt-24 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full text-left space-y-6 sm:space-y-8">
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold text-slate-950 bg-slate-100 border border-slate-200 shadow-sm">
@@ -115,11 +105,12 @@ const Gadgets = () => {
         </div>
       </section>
 
-      {/* Fully Responsive Asymmetric Bento Grid (Mobile 1-col, Tablet 2-col, Desktop 12-col) */}
-      <section className="relative z-10 w-full py-12 sm:py-16 bg-[#f8fafc]">
+      {/* Pure Clean White Catalog Section (Mirroring Shop.jsx Accessories Page) */}
+      <section className="relative z-10 w-full py-12 sm:py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
+          {/* Alternating Bento Grid matching Shop.jsx: (2+1) -> (1+1+1) -> (2+1) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {SMARTPHONE_BRANDS.map((item, idx) => (
               <motion.div
                 key={item.id}
@@ -128,7 +119,7 @@ const Gadgets = () => {
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={{ y: -6 }}
-                className={`${item.colSpan} bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 text-left`}
+                className={`${item.span} bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 text-left`}
               >
                 <div className="space-y-4">
                   {/* Condition Tag */}
@@ -139,26 +130,26 @@ const Gadgets = () => {
                     <Smartphone className="h-5 w-5 text-slate-950" />
                   </div>
 
-                  {/* Standalone Smartphone Image Container (Pure Bouncing Graphics) */}
-                  <div className={`${item.isHero ? 'h-64 sm:h-72' : 'h-52'} w-full flex flex-col items-center justify-center relative py-2 overflow-hidden`}>
+                  {/* Standalone Bouncing Smartphone Image Container */}
+                  <div className="h-52 w-full flex flex-col items-center justify-center relative py-2 overflow-hidden">
                     <motion.img 
                       animate={{ y: [0, -12, 0] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                       src={item.image} 
                       alt={item.brand} 
-                      className={`${item.isHero ? 'h-56 sm:h-64' : 'h-44'} object-contain filter drop-shadow-xl z-10`}
+                      className="h-44 object-contain filter drop-shadow-xl z-10"
                     />
                     {/* Pulsing Shadow Effect */}
                     <motion.div
                       animate={{ scaleX: [1, 0.6, 1], opacity: [0.4, 0.15, 0.4] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-                      className={`${item.isHero ? 'w-44 h-4' : 'w-32 h-3'} bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0`}
+                      className="w-32 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0"
                     />
                   </div>
 
-                  {/* Brand Title Only */}
+                  {/* Brand Title */}
                   <div className="pt-2">
-                    <h3 className={`font-display font-black ${item.isHero ? 'text-2xl sm:text-3xl' : 'text-xl'} text-slate-950 leading-tight`}>
+                    <h3 className="font-display font-black text-xl text-slate-950 leading-tight">
                       {item.brand}
                     </h3>
                   </div>
@@ -179,13 +170,13 @@ const Gadgets = () => {
             ))}
           </div>
 
-          {/* ── INNOVATIVE CUSTOM PHONE AVAILABILITY INQUIRY BOX ── */}
+          {/* ── CLEAN CUSTOM PHONE AVAILABILITY INQUIRY BOX ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-white rounded-[2.5rem] p-8 sm:p-12 border border-slate-300 shadow-md text-left space-y-8"
+            className="bg-white rounded-[2.5rem] p-8 sm:p-12 border border-slate-200 shadow-sm text-left space-y-8"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-6">
               <div className="space-y-2">
