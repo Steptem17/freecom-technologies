@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Smartphone, Tablet, Headphones, Monitor, Star, StarHalf, Clock, ShieldCheck, MapPin, Cpu, PhoneCall, Grid, Compass, MessageSquare, BatteryCharging, BatteryLow } from 'lucide-react';
+import { Smartphone, Tablet, Headphones, Monitor, Star, StarHalf, Clock, ShieldCheck, MapPin, Cpu, PhoneCall, Grid, Compass, MessageSquare, BatteryCharging, BatteryLow, ShoppingBag } from 'lucide-react';
 import { REVIEWS_DATA } from '../utils/mockData';
 
 const Home = () => {
