@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import Logo from './Logo';
-import { ShoppingBag, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X, ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,33 +17,37 @@ const Navbar = () => {
     { to: '/about', label: 'About' },
     { to: '/repair', label: 'Repair Intake' },
     { to: '/accessories', label: 'Accessories' },
-    { to: '/contact', label: 'Find Us' }
+    { to: '/contact', label: 'Find Store' }
   ];
 
   const activeStyle = ({ isActive }) =>
-    `font-display font-medium text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-colors duration-300 relative py-2 ${
+    `font-sans font-bold text-sm transition-colors duration-200 py-2 relative flex items-center ${
       isActive
-        ? 'text-primary font-bold'
-        : 'text-zinc-500 hover:text-zinc-950'
+        ? 'text-slate-950 font-extrabold'
+        : 'text-slate-500 hover:text-slate-950'
     }`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-150 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl h-16 items-center justify-between px-4 sm:px-6">
-        {/* Logo Link */}
-        <Link to="/" onClick={closeMenu} className="flex-shrink-0">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all font-sans relative">
+      <div className="mx-auto flex max-w-7xl h-16 sm:h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+        
+        {/* Brand Logo */}
+        <Link to="/" onClick={closeMenu} className="flex-shrink-0 flex items-center">
           <Logo />
         </Link>
 
-        {/* Desktop Links */}
-        <nav className="hidden lg:flex items-center space-x-8">
+        {/* Desktop Navigation Links (Title Case) */}
+        <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10">
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} className={activeStyle}>
               {({ isActive }) => (
                 <>
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary rounded-full" />
+                    <motion.span 
+                      layoutId="activeTabUnderline"
+                      className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-slate-950 rounded-full shadow-sm" 
+                    />
                   )}
                 </>
               )}
@@ -50,40 +55,44 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right CTA Actions */}
+        {/* Desktop CTA & Bag Icon Only */}
         <div className="hidden lg:flex items-center space-x-6">
           <Link
             to="/cart"
-            className="relative p-1.5 text-zinc-500 hover:text-zinc-950 transition-colors duration-300 flex items-center gap-1.5"
+            className="relative p-2.5 text-slate-700 hover:text-slate-950 transition-colors duration-200 flex items-center justify-center rounded-full hover:bg-slate-100"
             title="Inquiry Bag"
           >
-            <ShoppingBag className="h-4.5 w-4.5" />
-            <span className="text-[10px] uppercase font-semibold tracking-wider">Bag</span>
+            <ShoppingBag className="h-5 w-5 text-slate-950" />
             {getCartCount() > 0 && (
-              /* Color count badge strategically in corporate teal with light shadow */
-              <span className="absolute -top-1.5 -right-2 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[8px] font-bold text-white shadow-sm shadow-primary/30">
+              <span className="absolute -top-1 -right-1 inline-flex h-4.5 w-4.5 items-center justify-center rounded-full bg-slate-950 text-[9px] font-black text-white shadow-md">
                 {getCartCount()}
               </span>
             )}
           </Link>
 
-          <Link
-            to="/book"
-            className="inline-flex items-center justify-center rounded border border-primary bg-primary px-4 py-2 text-[9px] font-bold uppercase tracking-widest text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-sm shadow-primary/10"
+          <motion.div
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
-            Book Intake
-          </Link>
+            <Link
+              to="/book"
+              className="inline-flex items-center justify-center rounded-full bg-slate-950 hover:bg-slate-800 px-6 py-2.5 text-xs font-bold text-white shadow-lg shadow-slate-950/10 border border-slate-900 transition-all duration-200"
+            >
+              Book Repair Intake
+            </Link>
+          </motion.div>
         </div>
 
-        {/* Mobile & Tablet menu trigger */}
+        {/* Mobile Trigger & Top Bag Icon Only */}
         <div className="flex items-center space-x-3 lg:hidden">
           <Link
             to="/cart"
-            className="relative p-2 text-zinc-500 hover:text-zinc-950"
+            className="relative p-2 text-slate-700 hover:text-slate-950"
           >
-            <ShoppingBag className="h-5 w-5" />
+            <ShoppingBag className="h-5.5 w-5.5 text-slate-950" />
             {getCartCount() > 0 && (
-              <span className="absolute top-0 right-0 inline-flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[8px] font-bold text-white shadow-sm shadow-primary/30">
+              <span className="absolute -top-1 -right-1 inline-flex h-4.5 w-4.5 items-center justify-center rounded-full bg-slate-950 text-[9px] font-black text-white shadow-sm">
                 {getCartCount()}
               </span>
             )}
@@ -91,51 +100,55 @@ const Navbar = () => {
 
           <button
             onClick={toggleMenu}
-            className="rounded p-1 text-zinc-500 hover:bg-zinc-50"
+            aria-label="Toggle mobile menu"
+            className="rounded-lg p-2 text-slate-600 hover:text-slate-950 hover:bg-slate-100 transition-colors"
           >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
       </div>
 
-      {/* Mobile & Tablet Drawer */}
-      {isOpen && (
-        <div className="lg:hidden border-b border-zinc-150 bg-white px-4 pt-2 pb-4 shadow-sm transition-all duration-300">
-          <div className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `block text-[11px] font-bold uppercase tracking-wider py-3 border-b border-zinc-50 ${
-                    isActive ? 'text-primary' : 'text-zinc-500'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            
-            <Link
-              to="/cart"
-              onClick={closeMenu}
-              className="flex items-center gap-2 py-3 text-[11px] font-bold uppercase tracking-wider text-zinc-500"
-            >
-              <ShoppingBag className="h-4.5 w-4.5" />
-              <span>Inquiry Bag ({getCartCount()})</span>
-            </Link>
+      {/* Smooth Mobile Drawer Dropdown Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scaleY: 0.96 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -8, scaleY: 0.96 }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-full left-0 right-0 lg:hidden border-b border-slate-200/90 bg-white/98 backdrop-blur-2xl px-6 py-5 shadow-2xl origin-top space-y-3 z-50"
+          >
+            <div className="flex flex-col space-y-1">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    `flex items-center justify-between text-sm font-bold py-3.5 px-5 rounded-2xl transition-colors ${
+                      isActive
+                        ? 'bg-slate-100 text-slate-950 font-extrabold'
+                        : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                    }`
+                  }
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="h-4 w-4 opacity-40" />
+                </NavLink>
+              ))}
 
-            <Link
-              to="/book"
-              onClick={closeMenu}
-              className="flex w-full items-center justify-center rounded border border-primary bg-primary py-3 text-[10px] font-bold uppercase tracking-widest text-white mt-2"
-            >
-              Book Repair Intake
-            </Link>
-          </div>
-        </div>
-      )}
+              <Link
+                to="/book"
+                onClick={closeMenu}
+                className="flex w-full items-center justify-center rounded-full bg-slate-950 py-3.5 text-xs font-bold text-white mt-3 shadow-lg"
+              >
+                Book Repair Intake
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

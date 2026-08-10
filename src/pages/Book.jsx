@@ -84,7 +84,9 @@ const Book = () => {
     const ownerWhatsAppNumber = '2348030582883'; // Nigerian format, no leading + or 00
     const faultsListText = selectedFaults.map(f => `• ${FAULT_LABELS[f] || f}`).join('\n');
     
-    const messageText = `Hello Freecom Technology! I would like to get a repair quote for my device.
+    const messageText = `Hello Freecom Technologies,
+
+I would like to get a repair quote for my device:
 
 - Device: ${deviceBrand} ${deviceModel} (${deviceType})
 - Faults Selected:
