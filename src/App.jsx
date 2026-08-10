@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { CartProvider } from './context/CartContext';
 import { BookingProvider } from './context/BookingContext';
 import Layout from './components/Layout';
@@ -19,7 +20,7 @@ function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Lock scroll and reset position to top while loading
+    // Lock scroll and reset position to top while splash loader is active
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
@@ -28,7 +29,7 @@ function AppContent() {
       setIsLoading(false);
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
-    }, 1500);
+    }, 1200);
 
     return () => {
       clearTimeout(timer);
@@ -37,29 +38,29 @@ function AppContent() {
     };
   }, []);
 
-  // While loader is active, render ONLY the PageLoader (no website layout or scrollable DOM)
-  if (isLoading) {
-    return <PageLoader />;
-  }
-
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/repair" element={<Repair />} />
-        <Route path="/book" element={<Repair />} />
-        <Route path="/accessories" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/find-store" element={<Contact />} />
-        <Route path="/stores" element={<Contact />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        {/* Fallback to home */}
-        <Route path="*" element={<Home />} />
-      </Routes>
-    </Layout>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <PageLoader key="splash-loader" />}
+      </AnimatePresence>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/repair" element={<Repair />} />
+          <Route path="/book" element={<Repair />} />
+          <Route path="/accessories" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/find-store" element={<Contact />} />
+          <Route path="/stores" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          {/* Fallback to home */}
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
