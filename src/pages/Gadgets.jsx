@@ -47,14 +47,14 @@ const SMARTPHONE_BRANDS = [
     id: 'b-6',
     brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/brand_tecno.png',
+    image: '/brand_oppo_vivo.png',
     span: 'lg:col-span-2'
   },
   {
     id: 'b-7',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
-    image: '/brand_infinix.png',
+    image: '/brand_itel.png',
     span: 'lg:col-span-1'
   }
 ];
