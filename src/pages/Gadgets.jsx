@@ -7,50 +7,43 @@ const SMARTPHONE_BRANDS = [
     id: 'b-1',
     brand: 'Apple iPhone Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/phone_hero.png',
-    desc: 'iPhone 15, 14, 13, 12 Pro Max, Pro & Base Models'
+    image: '/phone_hero.png'
   },
   {
     id: 'b-2',
     brand: 'Samsung Galaxy Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/phone_hero.png',
-    desc: 'Galaxy S24, S23, S22 Ultra, Z Fold/Flip & A Series'
+    image: '/phone_hero.png'
   },
   {
     id: 'b-3',
     brand: 'Tecno Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
-    desc: 'Camon, Phantom, Spark & Pop Series Smartphones'
+    image: '/phone_hero.png'
   },
   {
     id: 'b-4',
     brand: 'Infinix Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
-    desc: 'Note, Zero, Hot & Smart Series Smartphones'
+    image: '/phone_hero.png'
   },
   {
     id: 'b-5',
     brand: 'Redmi / Xiaomi Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
-    desc: 'Redmi Note, Xiaomi Pro & Poco Series Smartphones'
+    image: '/phone_hero.png'
   },
   {
     id: 'b-6',
     brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
-    desc: 'Oppo Reno, A Series & Vivo V/Y Series Smartphones'
+    image: '/phone_hero.png'
   },
   {
     id: 'b-7',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
-    image: '/phone_hero.png',
-    desc: 'Itel S & P Series Budget Smartphones'
+    image: '/phone_hero.png'
   }
 ];
 
@@ -100,7 +93,7 @@ const Gadgets = () => {
         </div>
       </section>
 
-      {/* Smartphone Brand Grid with Bouncing Animated Graphics */}
+      {/* Smartphone Brand Grid with Clean Standalone Bouncing Phone Graphics */}
       <section className="relative z-10 w-full py-12 sm:py-16 bg-[#f8fafc]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
           
@@ -124,31 +117,28 @@ const Gadgets = () => {
                     <Smartphone className="h-5 w-5 text-slate-950" />
                   </div>
 
-                  {/* Smartphone Image Container with Smooth Bouncing Animation */}
-                  <div className="h-52 w-full bg-slate-50 rounded-2xl flex items-center justify-center p-4 overflow-hidden border border-slate-100 relative group">
+                  {/* Standalone Smartphone Image Container (NO GREY BOX, Pure Bouncing Graphics) */}
+                  <div className="h-52 w-full flex flex-col items-center justify-center relative py-2 overflow-hidden">
                     <motion.img 
-                      animate={{ y: [0, -8, 0] }}
-                      transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                      animate={{ y: [0, -12, 0] }}
+                      transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                       src={item.image} 
                       alt={item.brand} 
-                      className="h-full object-contain filter drop-shadow-lg group-hover:scale-105 transition-transform duration-300 z-10"
+                      className="h-44 object-contain filter drop-shadow-xl z-10"
                     />
-                    {/* Shadow pulse */}
+                    {/* Pulsing Shadow Effect */}
                     <motion.div
-                      animate={{ scaleX: [1, 0.7, 1], opacity: [0.5, 0.2, 0.5] }}
-                      transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                      className="w-32 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-2 z-0"
+                      animate={{ scaleX: [1, 0.6, 1], opacity: [0.4, 0.15, 0.4] }}
+                      transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+                      className="w-32 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0"
                     />
                   </div>
 
-                  {/* Brand & Specs */}
-                  <div className="space-y-1.5">
-                    <h3 className="font-display font-bold text-lg text-slate-950 leading-tight">
+                  {/* Brand Title Only (No Subtitle Description) */}
+                  <div className="pt-2">
+                    <h3 className="font-display font-black text-xl text-slate-950 leading-tight">
                       {item.brand}
                     </h3>
-                    <p className="text-xs text-slate-500 font-normal leading-relaxed">
-                      {item.desc}
-                    </p>
                   </div>
                 </div>
 
@@ -167,7 +157,7 @@ const Gadgets = () => {
             ))}
           </div>
 
-          {/* ── INNOVATIVE CUSTOM PHONE / BRAND AVAILABILITY INQUIRY BOX ── */}
+          {/* ── INNOVATIVE CUSTOM PHONE AVAILABILITY INQUIRY BOX ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -182,7 +172,7 @@ const Gadgets = () => {
                   <span>CUSTOM PHONE AVAILABILITY SEARCH</span>
                 </div>
                 <h3 className="font-display font-black text-2xl sm:text-3xl text-slate-950 uppercase tracking-tight">
-                  CAN'T FIND THE EXACT PHONE BRAND OR MODEL YOU'RE LOOKING FOR?
+                  CAN'T FIND THE EXACT PHONE BRAND YOU'RE LOOKING FOR?
                 </h3>
               </div>
               <ShieldCheck className="h-10 w-10 text-slate-900 hidden sm:block shrink-0" />
