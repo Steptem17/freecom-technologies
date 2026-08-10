@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Repair from './pages/Repair';
 import Shop from './pages/Shop';
+import Gadgets from './pages/Gadgets';
 import Cart from './pages/Cart';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
@@ -49,6 +50,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/repair" element={<Repair />} />
         <Route path="/book" element={<Repair />} />
+        <Route path="/gadgets" element={<Gadgets />} />
         <Route path="/accessories" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />

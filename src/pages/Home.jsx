@@ -47,7 +47,7 @@ const Home = () => {
     {
       id: 'gadgets_sales',
       title: 'Gadgets Sales & Services',
-      desc: 'Sales of brand new & pre-owned smartphones, iPads, tablets, chargers, power banks, and tech gadgets.',
+      desc: 'Sales of brand new and used smartphones, power banks, chargers, and tech gadgets.',
       icon: <ShoppingBag className="h-7 w-7 text-slate-950" />,
       colSpan: 'md:col-span-4',
       padding: 'p-8 sm:p-10'
@@ -130,7 +130,7 @@ const Home = () => {
 
                 {/* ALL CAPS Headline */}
                 <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] tracking-tight text-slate-950 leading-[1.04] uppercase drop-shadow-md">
-                  PRECISION PHONE & GADGET REPAIR
+                  PRECISION PHONE REPAIR
                 </h1>
 
                 {/* Subtitle Description */}
@@ -290,7 +290,7 @@ const Home = () => {
             className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-14 gap-6 text-left"
           >
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 uppercase drop-shadow-sm">
-              Hardware Repair Services
+              OUR CORE SERVICES & SALES
             </h2>
             <p className="text-sm sm:text-base text-slate-600 max-w-md font-normal leading-relaxed">
               Professional repairs carried out by experienced technicians using OEM-grade components.
@@ -453,7 +453,7 @@ const Home = () => {
                   <div className="flex gap-3">
                     <MapPin className="h-5 w-5 text-slate-950 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-950 block text-sm">Head Office Repair Workshop:</span>
+                      <span className="font-bold text-slate-950 block text-sm">Head Office:</span>
                       <span>26, Showemimo Street, Adura Bus Stop, Alagbado, Lagos State, Nigeria.</span>
                     </div>
                   </div>
@@ -495,7 +495,7 @@ const Home = () => {
             >
               <div className="bg-white rounded-[2rem] p-1 relative overflow-hidden flex flex-col justify-between h-[340px] text-left shadow-sm border border-slate-300">
                 <iframe
-                  title="Freecom Head Office Workshop Location Map"
+                  title="Freecom Head Office Location Map"
                   src="https://maps.google.com/maps?q=26%20Showemimo%20street,%20Adura%20bus%20stop%20Alagbado%20Lagos%20State,%20Nigeria&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"

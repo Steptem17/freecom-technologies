@@ -83,6 +83,7 @@ const Footer = () => {
               <li><Link to="/" className="hover:text-slate-950 transition-colors flex items-center gap-1">Home <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
               <li><Link to="/about" className="hover:text-slate-950 transition-colors flex items-center gap-1">About Us <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
               <li><Link to="/repair" className="hover:text-slate-950 transition-colors flex items-center gap-1">Repair Intake <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
+              <li><Link to="/gadgets" className="hover:text-slate-950 transition-colors flex items-center gap-1">Phones & Gadgets <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
               <li><Link to="/accessories" className="hover:text-slate-950 transition-colors flex items-center gap-1">Accessories <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
               <li><Link to="/contact" className="hover:text-slate-950 transition-colors flex items-center gap-1">Find Store <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
             </ul>
@@ -95,7 +96,7 @@ const Footer = () => {
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-slate-950 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-slate-950 block">Head Office Workshop:</span>
+                  <span className="font-bold text-slate-950 block">Head Office:</span>
                   <span>26, Showemimo street, Adura bus stop Alagbado Lagos State.</span>
                 </div>
               </li>
