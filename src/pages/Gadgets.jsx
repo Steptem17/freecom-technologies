@@ -8,14 +8,14 @@ const SMARTPHONE_BRANDS = [
     id: 'b-1',
     brand: 'Apple iPhone Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/phone_hero.png',
+    image: '/brand_iphone.png',
     span: 'lg:col-span-2'
   },
   {
     id: 'b-2',
     brand: 'Samsung Galaxy Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/phone_hero.png',
+    image: '/brand_samsung.png',
     span: 'lg:col-span-1'
   },
 
@@ -24,21 +24,21 @@ const SMARTPHONE_BRANDS = [
     id: 'b-3',
     brand: 'Tecno Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
+    image: '/brand_tecno.png',
     span: 'lg:col-span-1'
   },
   {
     id: 'b-4',
     brand: 'Infinix Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
+    image: '/brand_infinix.png',
     span: 'lg:col-span-1'
   },
   {
     id: 'b-5',
     brand: 'Redmi / Xiaomi Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
+    image: '/brand_redmi.png',
     span: 'lg:col-span-1'
   },
 
@@ -47,14 +47,14 @@ const SMARTPHONE_BRANDS = [
     id: 'b-6',
     brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/phone_hero.png',
+    image: '/brand_tecno.png',
     span: 'lg:col-span-2'
   },
   {
     id: 'b-7',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
-    image: '/phone_hero.png',
+    image: '/brand_infinix.png',
     span: 'lg:col-span-1'
   }
 ];
@@ -130,20 +130,20 @@ const Gadgets = () => {
                     <Smartphone className="h-5 w-5 text-slate-950" />
                   </div>
 
-                  {/* Standalone Bouncing Smartphone Image Container */}
-                  <div className="h-52 w-full flex flex-col items-center justify-center relative py-2 overflow-hidden">
+                  {/* Standalone Bouncing Smartphone Image Container (Custom Transparent PNG) */}
+                  <div className="h-56 w-full flex flex-col items-center justify-center relative py-2 overflow-hidden">
                     <motion.img 
                       animate={{ y: [0, -12, 0] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
                       src={item.image} 
                       alt={item.brand} 
-                      className="h-44 object-contain filter drop-shadow-xl z-10"
+                      className="h-48 object-contain filter drop-shadow-xl z-10"
                     />
                     {/* Pulsing Shadow Effect */}
                     <motion.div
                       animate={{ scaleX: [1, 0.6, 1], opacity: [0.4, 0.15, 0.4] }}
                       transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
-                      className="w-32 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0"
+                      className="w-36 h-3 bg-slate-950/20 rounded-[100%] filter blur-sm absolute bottom-1 z-0"
                     />
                   </div>
 
