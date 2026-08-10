@@ -1,72 +1,79 @@
 # Freecom Technologies
 
-Official web platform for **Freecom Technologies** — Lagos State's premier mobile technology center specializing in professional smartphone repairs, hardware engineering, software flashing, and authentic brand new & certified pre-owned smartphone sales.
+Freecom Technologies is a web application for an enterprise mobile service and retail center based in Lagos, Nigeria. The platform facilitates online phone repair bookings, authentic smartphone stock inquiries, accessory commerce, and physical store navigation.
 
----
+## Features
 
-## 🌟 Core Services & Features
+### Phone Repair Intake System
+- Online repair scheduling for smartphones, tablets, iPads, and software flashing.
+- Direct telephonic integration with store workshop representatives.
+- Store intake location selection for walk-in repair dropped items.
 
-- **Precision Phone Repair Intake System (`/repair`):**
-  - Instant online repair booking for smartphones, iPads, tablets, and software flashing.
-  - Direct office line dialer and instant WhatsApp engineer dispatch.
-  - Transparent repair tracking with physical store pickup options.
+### Smartphone Catalog & Inventory Queries
+- Catalog showcasing brand new and certified pre-owned smartphones across major OEMs (Apple, Samsung, Tecno, Infinix, Redmi/Xiaomi, Oppo, Vivo, Itel).
+- Automated inventory query system routing customer specifications directly to store inventory managers.
 
-- **Phones & Tech Gadgets Catalog (`/gadgets`):**
-  - Verified inventory of brand new (sealed box) and certified pre-owned smartphones (Apple iPhone, Samsung Galaxy, Tecno, Infinix, Redmi / Xiaomi, Oppo, Vivo, and Itel).
-  - Custom phone availability inquiry system integrated with real-time store inventory messaging.
+### Mobile Accessories Store
+- Product listing for mobile charging hardware, protective accessories, audio devices, and storage peripherals.
+- Client-side shopping bag session management.
 
-- **Mobile Accessories Store (`/accessories`):**
-  - High-grade phone accessories including fast chargers, wall adapters, Type-C/Lightning cables, car plugs, wireless power banks, earbuds, screen guards, and memory storage.
-  - Interactive shopping bag & instant order dispatch.
+### Store Locations
+- Head Office: 26, Showemimo Street, Adura Bus Stop, Alagbado, Lagos State, Nigeria.
+- Branch Outlet: 4, Babayemi Street via Adegolu (Power Line), Adura Bus Stop, Alagbado, Lagos State, Nigeria.
 
-- **Store Locations & Contact (`/contact`):**
-  - **Head Office:** 26, Showemimo Street, Adura Bus Stop, Alagbado, Lagos State, Nigeria.
-  - **Branch Outlet:** 4, Babayemi Street via Adegolu (Power Line), Adura Bus Stop, Alagbado, Lagos State, Nigeria.
+## Technology Stack
 
----
+- Core Library: React 18
+- Build System: Vite
+- Utility Styling: Tailwind CSS
+- Interface Animations: Framer Motion
+- Iconography: Lucide React
+- Hosting Infrastructure: Vercel Edge Network
 
-## 🛠️ Technology Stack
+## Project Architecture
 
-- **Frontend Core:** React 18 & Vite
-- **Styling & Design System:** Tailwind CSS v4 & Custom Typography
-- **Motion & Animations:** Framer Motion
-- **Icons & UI Assets:** Lucide React Icons
-- **Deployment & Hosting:** Vercel Edge Network (Global CDN)
+```
+src/
+├── components/       # Global UI components (Navbar, Footer, CartDrawer, PageLoader)
+├── context/          # React Context providers (CartContext)
+├── pages/            # Application routes (Home, About, Repair, Gadgets, Shop, Contact)
+├── App.jsx           # Client-side router configuration
+└── main.jsx          # Application entry point
+```
 
----
+## Local Development
 
-## 💻 Local Development Setup
+### Requirements
+- Node.js version 18.0.0 or higher
+- npm package manager
 
-### Prerequisites
-- Node.js (v18.0.0 or higher)
-- npm or yarn package manager
+### Setup Instructions
 
-### Installation
-
-1. **Clone the Repository:**
+1. Clone repository:
    ```bash
    git clone https://github.com/Steptem17/freecom-technology.git
+   ```
+
+2. Change working directory:
+   ```bash
    cd freecom-technology
    ```
 
-2. **Install Dependencies:**
+3. Install project dependencies:
    ```bash
    npm install
    ```
 
-3. **Start Development Server:**
+4. Launch local development server:
    ```bash
    npm run dev
    ```
-   Open `http://localhost:5173` in your browser.
 
-4. **Production Build:**
+5. Generate production build:
    ```bash
    npm run build
    ```
 
----
+## License
 
-## 📄 License & Ownership
-
-Copyright © 2026 **Freecom Technologies**. All rights reserved.
+Copyright (c) 2026 Freecom Technologies. All rights reserved.
