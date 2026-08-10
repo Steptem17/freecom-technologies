@@ -68,11 +68,11 @@ const Footer = () => {
           <div className="lg:col-span-4 space-y-6 text-left">
             <Logo />
             <p className="text-xs text-slate-600 leading-relaxed font-normal max-w-sm">
-              Freecom Technologies provides specialized hardware repair services and tech accessories. OEM-grade components and transparent diagnostic inspections.
+              Freecom Technologies provides specialized phone repair services, phone accessories, and gadgets sales & services. Authentic components and transparent diagnostic inspections.
             </p>
             <div className="flex items-center gap-2 text-xs font-bold text-slate-950">
               <ShieldCheck className="h-4 w-4 text-slate-900" />
-              <span>Diagnostic Precision & Component Security</span>
+              <span>Phone Repairs • Phone Accessories • Gadgets Sales & Services</span>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-slate-950 transition-colors flex items-center gap-1">About Us <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
               <li><Link to="/repair" className="hover:text-slate-950 transition-colors flex items-center gap-1">Repair Intake <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
               <li><Link to="/accessories" className="hover:text-slate-950 transition-colors flex items-center gap-1">Accessories <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
-              <li><Link to="/find-store" className="hover:text-slate-950 transition-colors flex items-center gap-1">Find Store <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
+              <li><Link to="/contact" className="hover:text-slate-950 transition-colors flex items-center gap-1">Find Store <ArrowUpRight className="h-3 w-3 opacity-50" /></Link></li>
             </ul>
           </div>
 
@@ -95,7 +95,7 @@ const Footer = () => {
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-slate-950 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-slate-950 block">Main Workshop:</span>
+                  <span className="font-bold text-slate-950 block">Head Office Workshop:</span>
                   <span>26, Showemimo street, Adura bus stop Alagbado Lagos State.</span>
                 </div>
               </li>

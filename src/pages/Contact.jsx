@@ -95,7 +95,7 @@ const Contact = () => {
           {/* Dual Store Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* Left Card: MAIN HEADQUARTERS WORKSHOP */}
+            {/* Left Card: HEAD OFFICE WORKSHOP */}
             <motion.div 
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ const Contact = () => {
                       <MapPin className="h-5 w-5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest block">MAIN HEADQUARTERS</span>
+                      <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest block">HEAD OFFICE</span>
                       <h3 className="font-display font-bold text-lg sm:text-xl text-slate-950">Showemimo Street Workshop</h3>
                     </div>
                   </div>

@@ -32,7 +32,7 @@ const Repair = () => {
 
   // Pre-fill from query params
   useEffect(() => {
-    if (typeParam && ['smartphone', 'tablet', 'headphones', 'software'].includes(typeParam)) {
+    if (typeParam && ['smartphone', 'tablet', 'software', 'accessories_parts'].includes(typeParam)) {
       setDeviceType(typeParam);
     }
   }, [typeParam]);
@@ -41,7 +41,7 @@ const Repair = () => {
     { id: 'smartphone', name: 'Smartphone', desc: 'iPhone, Samsung, Tecno, Infinix', icon: <Smartphone className="h-6 w-6 text-slate-950" /> },
     { id: 'tablet', name: 'iPad & Tablet', desc: 'Apple iPad, Android Tablets', icon: <Tablet className="h-6 w-6 text-slate-950" /> },
     { id: 'software', name: 'Software Flashing', desc: 'OS Reinstalls, Bootloops, Unlocks', icon: <Monitor className="h-6 w-6 text-slate-950" /> },
-    { id: 'audio', name: 'Audio System', desc: 'AirPods, Bluetooth Speakers', icon: <Headphones className="h-6 w-6 text-slate-950" /> }
+    { id: 'accessories_parts', name: 'Phone Parts & Flex Repair', desc: 'Charging flex, display lens glass & ribbon cables', icon: <Wrench className="h-6 w-6 text-slate-950" /> }
   ];
 
   // Brand Options per category with "Others"
@@ -49,7 +49,7 @@ const Repair = () => {
     smartphone: ['iPhone', 'Samsung', 'Tecno', 'Infinix', 'Google Pixel', 'Xiaomi / Redmi', 'Others'],
     tablet: ['Apple iPad', 'Samsung Galaxy Tab', 'Lenovo Tab', 'Others'],
     software: ['Android OS', 'Apple iOS / iPadOS', 'Others'],
-    audio: ['AirPods', 'Bluetooth Speakers', 'Others']
+    accessories_parts: ['Charging Flex Port', 'Display Lens Glass', 'Camera Module', 'Others']
   };
 
   // Specific single-symptom hardware options
@@ -374,7 +374,7 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                             }`}
                           >
                             <div className="space-y-1">
-                              <h5 className="font-display font-bold text-xs sm:text-sm text-slate-950">Main Headquarters Workshop</h5>
+                              <h5 className="font-display font-bold text-xs sm:text-sm text-slate-950">Head Office Workshop</h5>
                               <p className="text-[11px] text-slate-600 font-normal leading-relaxed">
                                 26, Showemimo street, Adura bus stop Alagbado Lagos State.
                               </p>

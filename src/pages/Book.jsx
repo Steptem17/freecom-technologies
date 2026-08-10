@@ -230,7 +230,7 @@ Please let me know the estimated cost of repairs. Thank you!`;
                     <option value="">Select type</option>
                     <option value="smartphone">Smartphone</option>
                     <option value="tablet">iPad / Tablet</option>
-                    <option value="headphones">Audio / Headphone</option>
+                    <option value="parts">Phone Parts & Flex</option>
                     <option value="software">Software Services</option>
                   </select>
                 </div>

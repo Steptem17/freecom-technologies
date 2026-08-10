@@ -50,17 +50,17 @@ const About = () => {
               {/* Left: Headline & Brand Story */}
               <div className="lg:col-span-7 space-y-4 sm:space-y-6">
                 <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-tight text-slate-950 uppercase leading-[1.06] drop-shadow-md">
-                  CRAFTING RELIABLE GADGET REPAIRS SINCE DAY ONE
+                  PHONE REPAIRS • PHONE ACCESSORIES • GADGETS SALES & SERVICES
                 </h1>
 
                 <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-                  Freecom Technologies is a trusted phone repair center and mobile accessory shop serving Lagos. We handle both hardware engineering and software flashing from our main workshop and branch outlet.
+                  Freecom Technologies is a trusted phone repair center, phone accessories provider, and gadgets sales & services store in Lagos. We handle both hardware engineering and software flashing from our Head Office and branch outlet.
                 </p>
 
-                {/* Main Store & Branch Locations */}
+                {/* Head Office & Branch Locations */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
                   <div className="bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-200 space-y-1">
-                    <span className="text-[9px] sm:text-[10px] font-extrabold text-slate-900 uppercase tracking-widest block">MAIN WORKSHOP LOCATION</span>
+                    <span className="text-[9px] sm:text-[10px] font-extrabold text-slate-900 uppercase tracking-widest block">HEAD OFFICE LOCATION</span>
                     <p className="text-xs font-semibold text-slate-700">26, Showemimo street, Adura bus stop Alagbado Lagos State, Nigeria</p>
                   </div>
                   <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-1">

@@ -45,10 +45,10 @@ const Home = () => {
       padding: 'p-8 sm:p-10'
     },
     {
-      id: 'headphones',
-      title: 'Audio Systems',
-      desc: 'Battery Replacement for AirPods & Bluetooth Speakers, and Charging Port Repair.',
-      icon: <Headphones className="h-7 w-7 text-slate-950" />,
+      id: 'gadgets_sales',
+      title: 'Gadgets Sales & Services',
+      desc: 'Sales of brand new & pre-owned smartphones, iPads, tablets, chargers, power banks, and tech gadgets.',
+      icon: <ShoppingBag className="h-7 w-7 text-slate-950" />,
       colSpan: 'md:col-span-4',
       padding: 'p-8 sm:p-10'
     },
@@ -453,7 +453,7 @@ const Home = () => {
                   <div className="flex gap-3">
                     <MapPin className="h-5 w-5 text-slate-950 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-950 block text-sm">Main Headquarters Repair Workshop:</span>
+                      <span className="font-bold text-slate-950 block text-sm">Head Office Repair Workshop:</span>
                       <span>26, Showemimo Street, Adura Bus Stop, Alagbado, Lagos State, Nigeria.</span>
                     </div>
                   </div>
@@ -495,7 +495,7 @@ const Home = () => {
             >
               <div className="bg-white rounded-[2rem] p-1 relative overflow-hidden flex flex-col justify-between h-[340px] text-left shadow-sm border border-slate-300">
                 <iframe
-                  title="Freecom Main Headquarters Workshop Location Map"
+                  title="Freecom Head Office Workshop Location Map"
                   src="https://maps.google.com/maps?q=26%20Showemimo%20street,%20Adura%20bus%20stop%20Alagbado%20Lagos%20State,%20Nigeria&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
