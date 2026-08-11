@@ -19,7 +19,7 @@ export const FAULT_LABELS = {
   buttons: 'Power or Volume Buttons Unresponsive',
   software: 'Boot Loop / Frozen Operating System',
   liquid: 'Liquid Damage / Exposure to Water',
-  other: 'Hardware Diagnosis Needed / Other Issue'
+  other: 'Other (Hardware Diagnosis Needed)'
 };
 
 export const BookingProvider = ({ children }) => {
@@ -46,28 +46,23 @@ export const BookingProvider = ({ children }) => {
       createdAt: new Date().toISOString()
     };
 
-    setBookings((prev) => [newBooking, ...prev]);
+    setBookings(prev => [newBooking, ...prev]);
     return newBooking;
   };
 
   const getBooking = (ticketId) => {
     return bookings.find(
-      (b) => b.ticketId.toUpperCase() === ticketId.trim().toUpperCase()
+      b => b.ticketId.toUpperCase() === ticketId.trim().toUpperCase()
     );
   };
 
   const cancelBooking = (ticketId) => {
-    setBookings((prev) => prev.filter((b) => b.ticketId !== ticketId));
+    setBookings(prev => prev.filter(b => b.ticketId !== ticketId));
   };
 
   return (
     <BookingContext.Provider
-      value={{
-        bookings,
-        addBooking,
-        getBooking,
-        cancelBooking
-      }}
+      value={{ bookings, addBooking, getBooking, cancelBooking }}
     >
       {children}
     </BookingContext.Provider>

@@ -294,7 +294,7 @@ Please let me know the estimated cost of repairs. Thank you!`;
                       placeholder="Describe other issue"
                       value={otherFaultDetail}
                       onChange={e => setOtherFaultDetail(e.target.value)}
-                      className="block w-full border border-zinc-200 rounded p-3 text-xs focus:outline-none focus:border-primary"
+                      className="block w-full border border-primary rounded p-3 text-xs focus:outline-none focus:border-primary"
                     />
                   </div>
                 )}
