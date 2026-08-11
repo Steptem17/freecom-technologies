@@ -274,7 +274,6 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                                 onClick={() => {
                                   setDeviceType(cat.id);
                                   setDeviceBrand(brandOptions[cat.id][0]);
-                                  setSelectedFaults([]);
                                 }}
                                 className={`p-5 rounded-2xl border text-left transition-all flex items-start gap-4 ${
                                   isSelected 
