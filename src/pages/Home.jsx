@@ -293,7 +293,7 @@ const Home = () => {
               OUR CORE SERVICES & SALES
             </h2>
             <p className="text-sm sm:text-base text-slate-600 max-w-md font-normal leading-relaxed">
-              Professional repairs carried out by experienced technicians using OEM-grade components.
+              Professional repairs carried out by experienced technicians using Original Equipment Manufacturer-grade components.
             </p>
           </motion.div>
 

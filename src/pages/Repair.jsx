@@ -24,6 +24,7 @@ const Repair = () => {
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
 const [otherFaultDetail, setOtherFaultDetail] = useState('');
+const [otherFaultError, setOtherFaultError] = useState(false);
   const [email, setEmail] = useState('');
 
   // Inline Validation Errors
@@ -66,6 +67,10 @@ const [otherFaultDetail, setOtherFaultDetail] = useState('');
 
   const toggleFault = (label) => {
     setFaultError(false);
+    // Clear other fault error when toggling 'Others'
+    if (label === 'Others') {
+      setOtherFaultError(false);
+    }
     setSelectedFaults((prev) => 
       prev.includes(label) ? prev.filter(f => f !== label) : [...prev, label]
     );
@@ -84,7 +89,14 @@ const [otherFaultDetail, setOtherFaultDetail] = useState('');
         setFaultError(true);
         return;
       }
+      // If 'Others' is selected, ensure a description is provided
+      if (selectedFaults.includes('Others') && !otherFaultDetail.trim()) {
+        setOtherFaultError(true);
+        setFaultError(true);
+        return;
+      }
       setFaultError(false);
+      setOtherFaultError(false);
     }
     setStep((prev) => Math.min(prev + 1, 3));
   };
@@ -120,7 +132,7 @@ const [otherFaultDetail, setOtherFaultDetail] = useState('');
       ? 'Adura Road Main Workshop & Accessory Center' 
       : 'Adura Bus Stop Branch Outlet';
 
-    const selectedSymptomsText = selectedFaults.join(', ');
+    const selectedSymptomsText = selectedFaults.map(f => f === 'Others' ? otherFaultDetail : f).join(', ');
 
     // Conversational, professional human message
     const message = `Hello Freecom Technologies,
@@ -335,7 +347,7 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                           const isOther = f.id === 'others';
                           if (isOther) {
                             return (
-                              <>
+                              <React.Fragment key={f.id}>
                                 {/* Others button */}
                                 <button
                                   type="button"
@@ -360,17 +372,25 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                                 </button>
                                 {/* Input appears beside when checked */}
                                 {isChecked && (
-                                  <div className="p-3.5 rounded-2xl border border-slate-300 bg-white text-slate-950 shadow-xs flex items-center justify-between w-full focus-within:border-slate-950 transition-colors">
-                                    <input
-                                      type="text"
-                                      placeholder="Specify other issue"
-                                      value={otherFaultDetail}
-                                      onChange={(e) => setOtherFaultDetail(e.target.value)}
-                                      className="w-full px-3 py-2 rounded-xl text-xs placeholder:text-[0.65rem] focus:outline-none"
-                                    />
+                                  <div className="w-full">
+                                    <div className="p-3.5 rounded-2xl border border-slate-300 bg-white text-slate-950 shadow-xs flex items-center justify-between w-full focus-within:border-slate-950 transition-colors">
+                                      <input
+                                        type="text"
+                                        placeholder="Specify other issue"
+                                        value={otherFaultDetail}
+                                        onChange={(e) => {
+                                          setOtherFaultError(false);
+                                          setOtherFaultDetail(e.target.value);
+                                        }}
+                                        className="w-full px-3 py-2 rounded-xl text-xs placeholder:text-[0.65rem] focus:outline-none"
+                                      />
+                                    </div>
+                                    {otherFaultError && (
+                                      <span className="text-[11px] text-rose-500 font-medium block mt-1">Please describe the issue.</span>
+                                    )}
                                   </div>
                                 )}
-                              </>
+                              </React.Fragment>
                             );
                           }
                           // regular fault options
