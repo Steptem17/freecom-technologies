@@ -34,15 +34,14 @@ const [otherFaultError, setOtherFaultError] = useState(false);
 
   // Pre-fill from query params
   useEffect(() => {
-    if (typeParam && ['smartphone', 'tablet', 'software'].includes(typeParam)) {
+    if (typeParam && ['smartphone', 'tablet'].includes(typeParam)) {
       setDeviceType(typeParam);
     }
   }, [typeParam]);
 
   const deviceCategories = [
     { id: 'smartphone', name: 'Smartphone', desc: 'iPhone, Samsung, Tecno, Infinix', icon: <Smartphone className="h-6 w-6 text-slate-950" /> },
-    { id: 'tablet', name: 'iPad & Tablet', desc: 'Apple iPad, Android Tablets', icon: <Tablet className="h-6 w-6 text-slate-950" /> },
-    { id: 'software', name: 'Software Flashing', desc: 'OS Reinstalls, Bootloops, Unlocks', icon: <Monitor className="h-6 w-6 text-slate-950" /> }
+    { id: 'tablet', name: 'iPad & Tablet', desc: 'Apple iPad, Android Tablets', icon: <Tablet className="h-6 w-6 text-slate-950" /> }
   ];
 
   // Brand Options per category with "Others"
@@ -59,7 +58,6 @@ const [otherFaultError, setOtherFaultError] = useState(false);
     { id: 'charging-port', label: 'Charging Port Problem', icon: <Zap className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'motherboard', label: 'Motherboard Repair', icon: <Wrench className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'water-damage', label: 'Water Damage', icon: <Wrench className="h-4.5 w-4.5 text-slate-950" /> },
-    { id: 'software-flashing', label: 'Software Flashing', icon: <Monitor className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'camera-problem', label: 'Camera Problem', icon: <Cpu className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'speaker-mic', label: 'Speaker / Microphone Fault', icon: <Headphones className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'others', label: 'Others', icon: <Wrench className="h-4.5 w-4.5 text-slate-950" /> }
@@ -71,11 +69,11 @@ const [otherFaultError, setOtherFaultError] = useState(false);
     { id: 'bootloop-fix', label: 'Bootloop Fix', icon: <Zap className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'phone-unlock', label: 'Phone Unlock', icon: <Lock className="h-4.5 w-4.5 text-slate-950" /> },
     { id: 'sim-unlock', label: 'SIM Unlock', icon: <PhoneCall className="h-4.5 w-4.5 text-slate-950" /> },
-    { id: 'flash-ios', label: 'Flash iPhone / iPad', icon: <Cpu className="h-4.5 w-4.5 text-slate-950" /> },
-    { id: 'remove-icloud', label: 'Remove iCloud Activation Lock', icon: <ShieldCheck className="h-4.5 w-4.5 text-slate-950" /> },
-    { id: 'others', label: 'Others', icon: <Wrench className="h-4.5 w-4.5 text-slate-950" /> }
+    { id: 'flash-ios', label: 'Flash phone', icon: <Cpu className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'remove-icloud', label: 'Remove iCloud Activation Lock', icon: <ShieldCheck className="h-4.5 w-4.5 text-slate-950" /> }
   ];
 
+  const combinedFaultOptions = [...faultOptions.filter(f => f.id !== 'others'), ...softwareFaultOptions, ...faultOptions.filter(f => f.id === 'others')];
 
   const toggleFault = (label) => {
     setFaultError(false);
@@ -83,9 +81,14 @@ const [otherFaultError, setOtherFaultError] = useState(false);
     if (label === 'Others') {
       setOtherFaultError(false);
     }
-    setSelectedFaults((prev) => 
-      prev.includes(label) ? prev.filter(f => f !== label) : [...prev, label]
-    );
+    setSelectedFaults((prev) => {
+      if (prev.includes(label)) {
+        // Deselect this symptom
+        return prev.filter(item => item !== label);
+      }
+      // Select this symptom in addition to existing ones
+      return [...prev, label];
+    });
   };
 
   const handleNextStep = () => {
@@ -114,7 +117,18 @@ const [otherFaultError, setOtherFaultError] = useState(false);
   };
 
   const handlePrevStep = () => {
-    setStep((prev) => Math.max(prev - 1, 1));
+    setStep((prev) => {
+      const newStep = Math.max(prev - 1, 1);
+      if (newStep === 1) {
+        // Reset selections when going back to step 1
+        setSelectedFaults([]);
+        setDeviceBrand('');
+        setDeviceModel('');
+        setOtherFaultDetail('');
+        setPreferredLocation('main');
+      }
+      return newStep;
+    });
   };
 
   // Direct WhatsApp Price Inquiry Dispatch
@@ -232,9 +246,19 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
                     onClick={() => {
+                      // Reset all wizard state
                       setModelError(false);
                       setFaultError(false);
                       setContactError(false);
+                      setSelectedFaults([]);
+                      setDeviceBrand('');
+                      setDeviceModel('');
+                      setOtherFaultDetail('');
+                      setPreferredLocation('main');
+                      setFirstName('');
+                      setLastName('');
+                      setPhone('');
+                      setEmail('');
                       setStep(1);
                     }}
                     className="text-xs font-bold text-slate-700 hover:text-slate-950 transition-colors flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-300 shadow-xs"
@@ -272,9 +296,9 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                                 whileTap={{ scale: 0.99 }}
                                 transition={{ duration: 0.25 }}
                                 onClick={() => {
-                                  setDeviceType(cat.id);
-                                  setDeviceBrand(brandOptions[cat.id][0]);
-                                }}
+                                     setDeviceType(cat.id);
+                                     setDeviceBrand('');
+                                   }}
                                 className={`p-5 rounded-2xl border text-left transition-all flex items-start gap-4 ${
                                   isSelected 
                                     ? 'border-slate-950 bg-white text-slate-950 shadow-xs' 
@@ -364,7 +388,7 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                         {(deviceType === 'software' ? softwareFaultOptions : faultOptions).map((f) => {
+                          {combinedFaultOptions.map((f) => {
                           const isChecked = selectedFaults.includes(f.label);
                           const isOther = f.id === 'others';
                           if (isOther) {
