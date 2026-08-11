@@ -23,6 +23,7 @@ const Repair = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
+const [otherFaultDetail, setOtherFaultDetail] = useState('');
   const [email, setEmail] = useState('');
 
   // Inline Validation Errors
@@ -331,33 +332,75 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {faultOptions.map((f) => {
                           const isChecked = selectedFaults.includes(f.label);
+                          const isOther = f.id === 'others';
+                          if (isOther) {
+                            return (
+                              <>
+                                {/* Others button */}
+                                <button
+                                  type="button"
+                                  onClick={() => toggleFault(f.label)}
+                                  className={`p-3.5 rounded-2xl border text-left transition-all w-full flex items-center justify-between ${
+                                    isChecked
+                                      ? 'border-slate-950 bg-white text-slate-950 shadow-xs'
+                                      : 'border-slate-300/80 bg-white/70 hover:bg-white text-slate-700'
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    <div className="p-2 rounded-xl bg-slate-100 text-slate-950">{f.icon}</div>
+                                    <h5 className="font-display font-bold text-xs sm:text-sm text-slate-950">{f.label}</h5>
+                                  </div>
+                                  <div
+                                    className={`w-4 h-4 rounded border flex items-center justify-center ${
+                                      isChecked ? 'bg-slate-950 border-slate-950 text-white' : 'border-slate-300 bg-white'
+                                    }`}
+                                  >
+                                    {isChecked && <Check className="h-3 w-3 stroke-[3]" />}
+                                  </div>
+                                </button>
+                                {/* Input appears beside when checked */}
+                                {isChecked && (
+                                  <div className="p-3.5 rounded-2xl border border-slate-300 bg-white text-slate-950 shadow-xs flex items-center justify-between w-full focus-within:border-slate-950 transition-colors">
+                                    <input
+                                      type="text"
+                                      placeholder="Specify other issue"
+                                      value={otherFaultDetail}
+                                      onChange={(e) => setOtherFaultDetail(e.target.value)}
+                                      className="w-full px-3 py-2 rounded-xl text-xs placeholder:text-[0.65rem] focus:outline-none"
+                                    />
+                                  </div>
+                                )}
+                              </>
+                            );
+                          }
+                          // regular fault options
                           return (
-                            <button
-                              key={f.id}
-                              type="button"
-                              onClick={() => toggleFault(f.label)}
-                              className={`p-3.5 rounded-2xl border text-left transition-all flex items-center justify-between ${
-                                isChecked 
-                                  ? 'border-slate-950 bg-white text-slate-950 shadow-xs' 
-                                  : 'border-slate-300/80 bg-white/70 hover:bg-white text-slate-700'
-                              }`}
-                            >
-                              <div className="flex items-center gap-3">
-                                <div className="p-2 rounded-xl bg-slate-100 text-slate-950">
-                                  {f.icon}
+                            <div className="flex flex-col w-full space-y-2" key={f.id}>
+                              <button
+                                type="button"
+                                onClick={() => toggleFault(f.label)}
+                                className={`p-3.5 rounded-2xl border text-left transition-all w-full flex items-center justify-between ${
+                                  isChecked
+                                    ? 'border-slate-950 bg-white text-slate-950 shadow-xs'
+                                    : 'border-slate-300/80 bg-white/70 hover:bg-white text-slate-700'
+                                }`}
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div className="p-2 rounded-xl bg-slate-100 text-slate-950">{f.icon}</div>
+                                  <h5 className="font-display font-bold text-xs sm:text-sm text-slate-950">{f.label}</h5>
                                 </div>
-                                <h5 className="font-display font-bold text-xs sm:text-sm text-slate-950">{f.label}</h5>
-                              </div>
-
-                              <div className={`w-4 h-4 rounded border flex items-center justify-center ${
-                                isChecked ? 'bg-slate-950 border-slate-950 text-white' : 'border-slate-300 bg-white'
-                              }`}>
-                                {isChecked && <Check className="h-3 w-3 stroke-[3]" />}
-                              </div>
-                            </button>
+                                <div
+                                  className={`w-4 h-4 rounded border flex items-center justify-center ${
+                                    isChecked ? 'bg-slate-950 border-slate-950 text-white' : 'border-slate-300 bg-white'
+                                  }`}
+                                >
+                                  {isChecked && <Check className="h-3 w-3 stroke-[3]" />}
+                                </div>
+                              </button>
+                            </div>
                           );
                         })}
-                      </div>
+                       </div>
 
                       <div className="space-y-3 pt-2">
                         <h4 className="font-display font-bold text-sm text-slate-950">Select Workshop Drop-Off Store Location</h4>
