@@ -19,6 +19,7 @@ const Book = () => {
   const [deviceModel, setDeviceModel] = useState('');
   const [selectedFaults, setSelectedFaults] = useState([]);
   const [problemDescription, setProblemDescription] = useState(descParam);
+  const [otherFaultDetail, setOtherFaultDetail] = useState('');
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -66,6 +67,7 @@ const Book = () => {
       model: deviceModel,
       services: selectedFaults,
       problemDescription,
+      otherDetail: otherFaultDetail,
       customer: {
         firstName,
         lastName,
@@ -284,6 +286,18 @@ Please let me know the estimated cost of repairs. Thank you!`;
                   })}
                 </div>
               </div>
+                {selectedFaults.includes('other') && (
+                  <div className="pt-2">
+                    <label className="block text-[9px] font-bold text-zinc-450 uppercase mb-2">Other Issue Details</label>
+                    <input
+                      type="text"
+                      placeholder="Describe other issue"
+                      value={otherFaultDetail}
+                      onChange={e => setOtherFaultDetail(e.target.value)}
+                      className="block w-full border border-zinc-200 rounded p-3 text-xs focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                )}
 
               {/* Problem Description */}
               <div className="pt-2">
