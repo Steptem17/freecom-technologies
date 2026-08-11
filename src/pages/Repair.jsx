@@ -65,6 +65,18 @@ const [otherFaultError, setOtherFaultError] = useState(false);
     { id: 'others', label: 'Others', icon: <Wrench className="h-4.5 w-4.5 text-slate-950" /> }
   ];
 
+  // Software-specific symptom options for the "Software Flashing" category
+  const softwareFaultOptions = [
+    { id: 'os-reinstall', label: 'OS Reinstall', icon: <Monitor className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'bootloop-fix', label: 'Bootloop Fix', icon: <Zap className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'phone-unlock', label: 'Phone Unlock', icon: <Lock className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'sim-unlock', label: 'SIM Unlock', icon: <PhoneCall className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'flash-ios', label: 'Flash iPhone / iPad', icon: <Cpu className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'remove-icloud', label: 'Remove iCloud Activation Lock', icon: <ShieldCheck className="h-4.5 w-4.5 text-slate-950" /> },
+    { id: 'others', label: 'Others', icon: <Wrench className="h-4.5 w-4.5 text-slate-950" /> }
+  ];
+
+
   const toggleFault = (label) => {
     setFaultError(false);
     // Clear other fault error when toggling 'Others'
@@ -135,15 +147,27 @@ const [otherFaultError, setOtherFaultError] = useState(false);
     const selectedSymptomsText = selectedFaults.map(f => f === 'Others' ? otherFaultDetail : f).join(', ');
 
     // Conversational, professional human message
-    const message = `Hello Freecom Technologies,
+    const message = (() => {
+      const deviceInfo = `${deviceBrand === 'Others' ? '' : deviceBrand} ${deviceModel} (${deviceType.toUpperCase()})`;
+      if (deviceType === 'software') {
+        // Software flashing specific template
+          return `Hello Freecom, my name is ${firstName} ${lastName} and I'm reaching out to book a repair intake and ask for the price of my device.
+
+For my device ${deviceInfo}, repair symptoms: ${selectedSymptomsText}.
+
+Could you kindly share price estimates and turnaround time for this repair? Thank you!`;
+      }
+      // Default template for other device types
+      return `Hello Freecom Technologies,
 
 My name is ${firstName} ${lastName}, and I am reaching out to book a repair intake and ask for price estimates for my device:
 
-• Device: ${deviceBrand === 'Others' ? '' : deviceBrand} ${deviceModel} (${deviceType.toUpperCase()})
+• Device: ${deviceInfo}
 • Repair Symptoms: ${selectedSymptomsText}
 • Preferred Workshop Location: ${locationName}
 
 Could you kindly share price estimates and turnaround time for this repair? Thank you!`;
+    })();
 
     const encodedMsg = encodeURIComponent(message);
     window.open(`https://wa.me/2348030582883?text=${encodedMsg}`, '_blank');
@@ -335,14 +359,12 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                     >
                       <div className="space-y-2">
                         <h4 className="font-display font-bold text-base sm:text-lg text-slate-950">Check Specific Symptoms & Issues</h4>
+
                         <p className="text-xs text-slate-600 font-normal">Select the main symptoms your {deviceBrand === 'Others' ? '' : deviceBrand} {deviceModel} is experiencing:</p>
-                        {faultError && (
-                          <span className="text-[11px] text-rose-500 font-medium block">Please check at least one symptom or select Others.</span>
-                        )}
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {faultOptions.map((f) => {
+                         {(deviceType === 'software' ? softwareFaultOptions : faultOptions).map((f) => {
                           const isChecked = selectedFaults.includes(f.label);
                           const isOther = f.id === 'others';
                           if (isOther) {
@@ -647,8 +669,7 @@ Could you kindly share price estimates and turnaround time for this repair? Than
               {/* Workshop Commitments Card */}
               <div className="bg-[#f1f5f9] text-slate-950 p-6 sm:p-8 rounded-3xl sm:rounded-[2.5rem] shadow-xs space-y-6 border border-slate-200/80">
                 <div className="space-y-1">
-                  <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest block">REPAIR STANDARDS</span>
-                  <h3 className="font-display font-black text-xl text-slate-950">Workshop Commitments</h3>
+                  <h3 className="font-display font-black text-xl text-slate-950">Repair standards & workshop commitments</h3>
                 </div>
 
                 <div className="space-y-4 pt-2">
@@ -658,7 +679,7 @@ Could you kindly share price estimates and turnaround time for this repair? Than
                     </div>
                     <div>
                       <h5 className="font-bold text-slate-950 text-xs">Original Replacement Parts</h5>
-                      <p className="text-[11px] text-slate-500 font-normal leading-normal">Every repair is fitted with authentic manufacturer-grade components.</p>
+                      <p className="text-[11px] text-slate-500 font-normal leading-normal">Professional repair carried out by experienced technicians using original grade components.</p>
                     </div>
                   </div>
 

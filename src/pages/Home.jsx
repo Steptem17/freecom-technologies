@@ -287,14 +287,12 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-14 gap-6 text-left"
+            className="flex flex-col md:flex-row md:items-start justify-between pb-1 mb-2 gap-6 text-left"
           >
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 uppercase drop-shadow-sm">
               OUR CORE SERVICES & SALES
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 max-w-md font-normal leading-relaxed">
-              Professional repairs carried out by experienced technicians using Original Equipment Manufacturer-grade components.
-            </p>
+            <p className="text-sm sm:text-base text-slate-600 -mt-1 md:-mt-1 mb-3 max-w-md font-normal leading-relaxed text-left">Professional repair carried out by experienced technicians using original grade components.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
@@ -305,8 +303,8 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.6, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className={`${serv.colSpan} ${serv.padding} bg-white rounded-[2.5rem] text-left shadow-xl shadow-slate-200/60 hover:shadow-2xl transition-all duration-300 space-y-5 border border-slate-100/90`}
+                whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2, ease: [0.16, 1, 0.3, 1] } }}
+                className={`${serv.colSpan} ${serv.padding} bg-white rounded-[2.5rem] text-left shadow-xl shadow-slate-200/60 hover:shadow-2xl transition-all duration-150 space-y-5 border border-slate-100/90`}
               >
                 <div className="h-14 w-14 rounded-2xl bg-slate-100 flex items-center justify-center shadow-sm">
                   {serv.icon}
