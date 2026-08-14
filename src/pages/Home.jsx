@@ -336,12 +336,14 @@ const Home = () => {
           </h2>
 
           {/* High-Definition Edge-to-Edge Curved Video Canvas */}
-          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl w-full max-w-3xl lg:max-w-4xl h-[380px] sm:h-[460px] lg:h-[520px] mx-auto border border-slate-200/80">
+          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl w-full max-w-3xl lg:max-w-4xl h-[380px] sm:h-[460px] lg:h-[520px] mx-auto border border-slate-200/80 bg-slate-900">
             <video 
               autoPlay 
               loop 
               muted 
               playsInline 
+              preload="none"
+              poster="/mobile_repair_bench.jpg"
               className="w-full h-full object-cover"
             >
               <source src="/flagship_phone_teardown.mp4" type="video/mp4" />
