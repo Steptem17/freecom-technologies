@@ -343,7 +343,6 @@ const Home = () => {
               muted 
               playsInline 
               preload="auto"
-              poster="/mobile_repair_bench.webp"
               className="w-full h-full object-cover"
             >
               <source src="/flagship_phone_teardown.mp4" type="video/mp4" />
