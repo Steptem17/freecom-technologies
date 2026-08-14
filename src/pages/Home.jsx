@@ -155,7 +155,7 @@ const Home = () => {
                       scale: { duration: 0.6 },
                       y: { duration: 3.2, repeat: Infinity, ease: 'easeInOut' }
                     }}
-                    src="/phone_hero.png"
+                    src="/phone_hero.webp"
                     alt="Galaxy S24 Ultra & Stylus Precision Hardware Repair"
                     className="w-full h-full object-contain filter drop-shadow-2xl z-10"
                   />
@@ -251,7 +251,7 @@ const Home = () => {
                     scale: { duration: 0.6 },
                     y: { duration: 3.2, repeat: Infinity, ease: 'easeInOut' }
                   }}
-                  src="/phone_hero.png"
+                  src="/phone_hero.webp"
                   alt="Galaxy S24 Ultra & Stylus Precision Hardware Repair"
                   className="w-full h-full object-contain filter drop-shadow-2xl z-10"
                 />
@@ -342,8 +342,7 @@ const Home = () => {
               loop 
               muted 
               playsInline 
-              preload="none"
-              poster="/mobile_repair_bench.jpg"
+              preload="auto"
               className="w-full h-full object-cover"
             >
               <source src="/flagship_phone_teardown.mp4" type="video/mp4" />

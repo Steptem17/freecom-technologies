@@ -13,7 +13,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Chargers',
     price: 8500,
     span: 'lg:col-span-2 bg-white',
-    image: '/acc_charger.png',
+    image: '/acc_charger.webp',
     desc: 'Wall chargers, desktop charging stations, multi-port USB chargers, and fast phone chargers.'
   },
   {
@@ -21,7 +21,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Fast Adapters',
     price: 6500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_fast_adapter.png',
+    image: '/acc_fast_adapter.webp',
     desc: 'Fast charging power adapters, dual-port USB adapters, and quick wall plugs.'
   },
 
@@ -31,7 +31,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Charging Cables',
     price: 4500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_charging_cable.png',
+    image: '/acc_charging_cable.webp',
     desc: 'Type-C to Type-C cables, iPhone cables, Type-B Android cables, and multi-charging cables.'
   },
   {
@@ -39,7 +39,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Car Chargers',
     price: 6500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_car_charger.png',
+    image: '/acc_car_charger.webp',
     desc: 'Dual USB car charger and fast car adapter.'
   },
   {
@@ -47,7 +47,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Power Banks',
     price: 18500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_power_bank.png',
+    image: '/acc_power_bank.webp',
     desc: 'Wireless power banks, high-capacity portable power banks, and digital LED battery packs.'
   },
 
@@ -57,7 +57,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Memory Cards',
     price: 5500,
     span: 'lg:col-span-2 bg-white',
-    image: '/acc_memory_card.png',
+    image: '/acc_memory_card.webp',
     desc: 'High-speed MicroSD memory cards across various storage capacities.'
   },
   {
@@ -65,7 +65,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Flash Drives',
     price: 5000,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_flash_drive.png',
+    image: '/acc_flash_drive.webp',
     desc: 'Dual OTG USB flash drives for phones, tablets, and computers.'
   },
 
@@ -75,7 +75,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Memory Card Readers',
     price: 4000,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_card_reader.png',
+    image: '/acc_card_reader.webp',
     desc: 'High-speed USB card readers, OTG card readers, and multi-slot memory card readers.'
   },
   {
@@ -83,7 +83,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Screen Protectors & Tempered Glass',
     price: 3500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_screen_protector.png',
+    image: '/acc_screen_protector.webp',
     desc: 'Tempered screen guard, privacy screen guard, and normal screen guard.'
   },
   {
@@ -91,7 +91,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Earbuds',
     price: 24500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_earbuds.png',
+    image: '/acc_earbuds.webp',
     desc: 'Wireless Bluetooth Earbuds, noise-cancelling Earbuds, and spatial audio Earbuds.'
   },
 
@@ -101,7 +101,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Wireless Bluetooth Earphones',
     price: 12500,
     span: 'lg:col-span-2 bg-white',
-    image: '/acc_wireless_earphones.png',
+    image: '/acc_wireless_earphones.webp',
     desc: 'Wireless neckband Bluetooth earphones, magnetic sport earbuds, and stereo Bluetooth headsets.'
   },
   {
@@ -109,7 +109,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Wired Earphones',
     price: 4500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_wired_earphones.png',
+    image: '/acc_wired_earphones.webp',
     desc: 'Type-C digital wired earphones and 3.5mm jack stereo wired earphones.'
   },
 
@@ -119,7 +119,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Audio Sound Systems',
     price: 16500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_audio_system.png',
+    image: '/acc_audio_system.webp',
     desc: 'Portable wireless sound systems, heavy bass audio speakers, and mini sound bars.'
   },
   {
@@ -127,7 +127,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Smart-Watches',
     price: 19500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_smartwatch.png',
+    image: '/acc_smartwatch.webp',
     desc: 'Fitness tracker smartwatches, Bluetooth call smartwatches, and smart wristbands.'
   },
   {
@@ -135,7 +135,7 @@ const ALL_ACCESSORIES_CATALOG = [
     name: 'Hair Clippers',
     price: 14500,
     span: 'lg:col-span-1 bg-white',
-    image: '/acc_hair_clipper.png',
+    image: '/acc_hair_clipper.webp',
     desc: 'Rechargeable cordless hair clippers, hair trimmers, and LED digital display clippers.'
   }
 ];

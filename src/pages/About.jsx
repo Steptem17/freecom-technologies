@@ -81,7 +81,7 @@ const About = () => {
                     {/* Founder Avatar */}
                     <div className="relative shrink-0">
                       <img 
-                        src="/engineer.jpg" 
+                        src="/engineer.webp" 
                         alt="Engr. Kehinde Adeosun Founder & Phone Engineer" 
                         className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-slate-400 shadow-md"
                       />
@@ -206,7 +206,7 @@ const About = () => {
               >
                 <div className="relative overflow-hidden w-full max-w-md sm:max-w-lg h-64 sm:h-80 lg:h-[400px] shadow-xl rounded-2xl sm:rounded-3xl border border-slate-300 group">
                   <img
-                    src="/mobile_repair_bench.jpg"
+                    src="/mobile_repair_bench.webp"
                     alt="Authentic Freecom Technologies Mobile Repair Bench"
                     className="w-full h-full object-cover filter brightness-100 contrast-105 saturate-105 transition-transform duration-700 group-hover:scale-105"
                   />

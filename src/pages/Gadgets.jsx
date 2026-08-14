@@ -8,7 +8,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-1',
     brand: 'Apple iPhone Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/brand_iphone.png',
+    image: '/brand_iphone.webp',
     span: 'lg:col-span-2',
     isLarge: true
   },
@@ -16,7 +16,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-2',
     brand: 'Samsung Galaxy Series',
     tag: 'Brand New & Clean Pre-Owned',
-    image: '/brand_samsung.png',
+    image: '/brand_samsung.webp',
     span: 'lg:col-span-1',
     isLarge: false
   },
@@ -26,7 +26,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-3',
     brand: 'Tecno Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/brand_tecno.png',
+    image: '/brand_tecno.webp',
     span: 'lg:col-span-1',
     isLarge: false
   },
@@ -34,7 +34,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-4',
     brand: 'Infinix Mobile Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/brand_infinix.png',
+    image: '/brand_infinix.webp',
     span: 'lg:col-span-1',
     isLarge: false
   },
@@ -42,7 +42,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-5',
     brand: 'Redmi / Xiaomi Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/brand_redmi.png',
+    image: '/brand_redmi.webp',
     span: 'lg:col-span-1',
     isLarge: false
   },
@@ -52,7 +52,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-6',
     brand: 'Oppo & Vivo Series',
     tag: 'Brand New & Pre-Owned',
-    image: '/brand_oppo_vivo.png',
+    image: '/brand_oppo_vivo.webp',
     span: 'lg:col-span-2',
     isLarge: true
   },
@@ -60,7 +60,7 @@ const SMARTPHONE_BRANDS = [
     id: 'b-7',
     brand: 'Itel Mobile Series',
     tag: 'Brand New & Budget Friendly',
-    image: '/brand_itel.png',
+    image: '/brand_itel.webp',
     span: 'lg:col-span-1',
     isLarge: false
   }
